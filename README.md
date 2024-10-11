@@ -1,2 +1,2 @@
-# Semana08
+# Gamero
 grupo 06
