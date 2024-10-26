@@ -2,10 +2,21 @@ package Clases;
 
 public class Participantes extends Persona{
     private String tipoParticipante;
-    
-    public Participantes(String nombre, String genero, String email, int telefono, String tipoParticipante){
-    super (nombre, genero, email, telefono);
-    this.tipoParticipante = tipoParticipante;
+
+    public Participantes() {
+    }
+
+    public Participantes(String nombre, String genero, String email, int telefono, String tipoParticipante) {
+        super(nombre, genero, email, telefono);
+        this.tipoParticipante = tipoParticipante;
+    }
+
+    public String getTipoParticipante() {
+        return tipoParticipante;
+    }
+
+    public void setTipoParticipante(String tipoParticipante) {
+        this.tipoParticipante = tipoParticipante;
     }
     
      @Override
@@ -18,17 +29,10 @@ public class Participantes extends Persona{
         
     }
     
-    public void cancelarRegistro(){
-        
-    }
-
-    public String getTipoParticipante() {
-        return tipoParticipante;
-    }
-
-    public void setTipoParticipante(String tipoParticipante) {
-        this.tipoParticipante = tipoParticipante;
+    public void registrarParticipante(){
     }
     
-    
+    public void cancelarRegistro(){ 
+    }
+
 }

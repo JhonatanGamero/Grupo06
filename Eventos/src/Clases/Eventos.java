@@ -5,17 +5,70 @@ public class Eventos {
     private String nombreEvento;
     private String fechaInicio;
     private String fechaFin;
-    private int capacidad;
+    private char capacidad;
+
+    public Eventos() {
+    }
+
+    public Eventos(int codigoEvento, String nombreEvento, String fechaInicio, String fechaFin, char capacidad) {
+        this.codigoEvento = codigoEvento;
+        this.nombreEvento = nombreEvento;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.capacidad = capacidad;
+    }
+
+    public int getCodigoEvento() {
+        return codigoEvento;
+    }
+
+    public void setCodigoEvento(int codigoEvento) {
+        this.codigoEvento = codigoEvento;
+    }
+
+    public String getNombreEvento() {
+        return nombreEvento;
+    }
+
+    public void setNombreEvento(String nombreEvento) {
+        this.nombreEvento = nombreEvento;
+    }
+
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public char getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(char capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Eventos{" + "codigoEvento=" + codigoEvento + ", nombreEvento=" + nombreEvento + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", capacidad=" + capacidad + '}';
+    }
     
     public void crearEvento() {
-        // Lógica para crear evento
     }
     
     public void editarEvento() {
-        // Lógica para editar evento
     }
     
     public void cancelarEvento() {
-        // Lógica para cancelar evento
     }
 }

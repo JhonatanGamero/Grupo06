@@ -6,17 +6,17 @@ public abstract class Persona {
                 private String genero;
                 private String email;
                 private int telefono;
+
+    public Persona() {
+    }
                 
-                public Persona (String nombre, String genero, String email, int telefono){
+    public Persona (String nombre, String genero, String email, int telefono){
                     this.nombre = nombre;
                     this.genero = genero;
                     this.email = email;
                     this.telefono = telefono;
                 }
                 
-                public abstract void registrar();
-                public abstract void actualizar();
-
     public String getNombre() {
         return nombre;
     }
@@ -48,6 +48,13 @@ public abstract class Persona {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-                
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", genero=" + genero + ", email=" + email + ", telefono=" + telefono + '}';
+    }
+    
+    public abstract void registrar();
+    public abstract void actualizar();
                 
 }
