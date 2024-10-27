@@ -5,17 +5,15 @@ public class Registro {
     private String fechaRegistro;
     private int codigoParticipante;
     private int codigoEvento;
-    private String estado;
 
     public Registro() {
     }
 
-    public Registro(int codigoRegistro, String fechaRegistro, int codigoParticipante, int codigoEvento, String estado) {
+    public Registro(int codigoRegistro, String fechaRegistro, int codigoParticipante, int codigoEvento) {
         this.codigoRegistro = codigoRegistro;
         this.fechaRegistro = fechaRegistro;
         this.codigoParticipante = codigoParticipante;
         this.codigoEvento = codigoEvento;
-        this.estado = estado;
     }
 
     public int getCodigoRegistro() {
@@ -50,24 +48,14 @@ public class Registro {
         this.codigoEvento = codigoEvento;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
     @Override
     public String toString() {
-        return "Registro{" + "codigoRegistro=" + codigoRegistro + ", fechaRegistro=" + fechaRegistro + ", codigoParticipante=" + codigoParticipante + ", codigoEvento=" + codigoEvento + ", estado=" + estado + '}';
+        return "Registro{" + "codigoRegistro=" + codigoRegistro + ", fechaRegistro=" + fechaRegistro + ", codigoParticipante=" + codigoParticipante + ", codigoEvento=" + codigoEvento + '}';
     }
-    
-    
+
     public void validarRegistro() {
     }
     
     public void confirmarAsistencia() {
     }
-    
 }
