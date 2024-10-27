@@ -4,6 +4,10 @@
  */
 package GUI;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 /**
  *
  * @author USER
@@ -15,8 +19,15 @@ public class Pagina extends javax.swing.JFrame {
      */
     public Pagina() {
         initComponents();
+        SetDate();
     }
-
+     
+     private void SetDate(){   
+        LocalDate now = LocalDate.now();
+        Locale spanishLocale = new Locale ("es","ES");
+        dateText.setText(now.format(DateTimeFormatter.ofPattern(" 'Hoy es' EEEE dd 'de' MMMM 'de' yyyy", spanishLocale) ));
+    }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,20 +38,274 @@ public class Pagina extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
+        mensaje = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        menu = new javax.swing.JPanel();
+        appname = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnPrincipal = new javax.swing.JButton();
+        btnAgenda = new javax.swing.JButton();
+        btnUsuario = new javax.swing.JButton();
+        btnOrganizacion = new javax.swing.JButton();
+        btnEvento = new javax.swing.JButton();
+        btnNotificacion = new javax.swing.JButton();
+        btnRetroalimentacion = new javax.swing.JButton();
+        btnRegistro = new javax.swing.JButton();
+        btnPrecio = new javax.swing.JButton();
+        header = new javax.swing.JPanel();
+        dateText = new javax.swing.JLabel();
+        navText = new javax.swing.JLabel();
+        content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
 
+        mensaje.setFont(new java.awt.Font("Rockwell", 1, 25)); // NOI18N
+        mensaje.setForeground(new java.awt.Color(0, 0, 0));
+        mensaje.setText("Reserva tu evento, ¡ya mismo!");
+
+        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setAutoscrolls(true);
+
+        menu.setBackground(new java.awt.Color(231, 163, 95));
+        menu.setPreferredSize(new java.awt.Dimension(270, 640));
+
+        appname.setFont(new java.awt.Font("Roboto Black", 3, 36)); // NOI18N
+        appname.setForeground(new java.awt.Color(0, 0, 0));
+        appname.setText("Nexus Eventos");
+
+        btnPrincipal.setBackground(new java.awt.Color(231, 163, 95));
+        btnPrincipal.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnPrincipal.setForeground(new java.awt.Color(0, 0, 0));
+        btnPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/casa.png"))); // NOI18N
+        btnPrincipal.setText("Principal");
+        btnPrincipal.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnPrincipal.setBorderPainted(false);
+        btnPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPrincipal.setIconTextGap(10);
+
+        btnAgenda.setBackground(new java.awt.Color(231, 163, 95));
+        btnAgenda.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnAgenda.setForeground(new java.awt.Color(0, 0, 0));
+        btnAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agenda.png"))); // NOI18N
+        btnAgenda.setText("Agenda");
+        btnAgenda.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnAgenda.setBorderPainted(false);
+        btnAgenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgenda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAgenda.setIconTextGap(10);
+
+        btnUsuario.setBackground(new java.awt.Color(231, 163, 95));
+        btnUsuario.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
+        btnUsuario.setText("Usuario");
+        btnUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnUsuario.setBorderPainted(false);
+        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnUsuario.setIconTextGap(10);
+
+        btnOrganizacion.setBackground(new java.awt.Color(231, 163, 95));
+        btnOrganizacion.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnOrganizacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnOrganizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/organizacion.png"))); // NOI18N
+        btnOrganizacion.setText("Organización");
+        btnOrganizacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnOrganizacion.setBorderPainted(false);
+        btnOrganizacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOrganizacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnOrganizacion.setIconTextGap(10);
+
+        btnEvento.setBackground(new java.awt.Color(231, 163, 95));
+        btnEvento.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnEvento.setForeground(new java.awt.Color(0, 0, 0));
+        btnEvento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/evento.png"))); // NOI18N
+        btnEvento.setText("Evento");
+        btnEvento.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnEvento.setBorderPainted(false);
+        btnEvento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEvento.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEvento.setIconTextGap(10);
+        btnEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEventoActionPerformed(evt);
+            }
+        });
+
+        btnNotificacion.setBackground(new java.awt.Color(231, 163, 95));
+        btnNotificacion.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnNotificacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnNotificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/notificacion.png"))); // NOI18N
+        btnNotificacion.setText("Notificación");
+        btnNotificacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnNotificacion.setBorderPainted(false);
+        btnNotificacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNotificacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNotificacion.setIconTextGap(10);
+
+        btnRetroalimentacion.setBackground(new java.awt.Color(231, 163, 95));
+        btnRetroalimentacion.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnRetroalimentacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnRetroalimentacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/retroalimentacion.png"))); // NOI18N
+        btnRetroalimentacion.setText("Retroalimentación");
+        btnRetroalimentacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnRetroalimentacion.setBorderPainted(false);
+        btnRetroalimentacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRetroalimentacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRetroalimentacion.setIconTextGap(10);
+
+        btnRegistro.setBackground(new java.awt.Color(231, 163, 95));
+        btnRegistro.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/registro.png"))); // NOI18N
+        btnRegistro.setText("Registro");
+        btnRegistro.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnRegistro.setBorderPainted(false);
+        btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRegistro.setIconTextGap(10);
+
+        btnPrecio.setBackground(new java.awt.Color(231, 163, 95));
+        btnPrecio.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        btnPrecio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/precio.png"))); // NOI18N
+        btnPrecio.setText("Precio");
+        btnPrecio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnPrecio.setBorderPainted(false);
+        btnPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPrecio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPrecio.setIconTextGap(10);
+
+        javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
+        menu.setLayout(menuLayout);
+        menuLayout.setHorizontalGroup(
+            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAgenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnOrganizacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnNotificacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnRetroalimentacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(appname)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        menuLayout.setVerticalGroup(
+            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(appname, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnOrganizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnNotificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRetroalimentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        header.setBackground(new java.awt.Color(58, 126, 145));
+        header.setMinimumSize(new java.awt.Dimension(270, 100));
+
+        dateText.setFont(new java.awt.Font("Roboto Medium", 3, 18)); // NOI18N
+        dateText.setForeground(new java.awt.Color(204, 204, 204));
+        dateText.setText("Hoy es {dayname} {day} de {month} de {year}");
+
+        navText.setText("jLabel1");
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(navText)
+                    .addComponent(dateText))
+                .addContainerGap(371, Short.MAX_VALUE))
+        );
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(navText)
+                .addGap(33, 33, 33)
+                .addComponent(dateText)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        content.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1020, Short.MAX_VALUE)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(mensaje)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2))))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(mensaje)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -57,6 +322,10 @@ public class Pagina extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void btnEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEventoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEventoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,6 +363,24 @@ public class Pagina extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel appname;
     private javax.swing.JPanel background;
+    private javax.swing.JButton btnAgenda;
+    private javax.swing.JButton btnEvento;
+    private javax.swing.JButton btnNotificacion;
+    private javax.swing.JButton btnOrganizacion;
+    private javax.swing.JButton btnPrecio;
+    private javax.swing.JButton btnPrincipal;
+    private javax.swing.JButton btnRegistro;
+    private javax.swing.JButton btnRetroalimentacion;
+    private javax.swing.JButton btnUsuario;
+    private javax.swing.JPanel content;
+    private javax.swing.JLabel dateText;
+    private javax.swing.JPanel header;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel mensaje;
+    private javax.swing.JPanel menu;
+    private javax.swing.JLabel navText;
     // End of variables declaration//GEN-END:variables
 }
