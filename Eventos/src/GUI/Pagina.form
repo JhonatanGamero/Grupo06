@@ -461,7 +461,7 @@
                           <Component id="navText" min="-2" max="-2" attributes="0"/>
                           <Component id="dateText" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="371" max="32767" attributes="0"/>
+                      <EmptySpace pref="484" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -491,7 +491,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="navText">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Organizar/Reservar/Personalizar"/>
               </Properties>
             </Component>
           </SubComponents>

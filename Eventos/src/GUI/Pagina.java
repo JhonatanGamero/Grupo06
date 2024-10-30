@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import Ventanas.Principal;
+import java.awt.BorderLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -20,6 +22,7 @@ public class Pagina extends javax.swing.JFrame {
     public Pagina() {
         initComponents();
         SetDate();
+        InitContent();
     }
      
      private void SetDate(){   
@@ -235,7 +238,8 @@ public class Pagina extends javax.swing.JFrame {
         dateText.setForeground(new java.awt.Color(204, 204, 204));
         dateText.setText("Hoy es {dayname} {day} de {month} de {year}");
 
-        navText.setText("jLabel1");
+        navText.setForeground(new java.awt.Color(0, 0, 0));
+        navText.setText("Organizar/Reservar/Personalizar");
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -246,7 +250,7 @@ public class Pagina extends javax.swing.JFrame {
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(navText)
                     .addComponent(dateText))
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addContainerGap(484, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,4 +387,15 @@ public class Pagina extends javax.swing.JFrame {
     private javax.swing.JPanel menu;
     private javax.swing.JLabel navText;
     // End of variables declaration//GEN-END:variables
+
+    private void InitContent() {
+        Principal pl = new Principal (); 
+         pl.setSize(807, 543); 
+         pl.setLocation(0,0);
+         
+         content.removeAll();
+         content.add(pl, BorderLayout.CENTER);
+         content.revalidate();
+         content.repaint();
+    }
 }
