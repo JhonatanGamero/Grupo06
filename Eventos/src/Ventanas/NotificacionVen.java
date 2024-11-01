@@ -8,12 +8,12 @@ package Ventanas;
  *
  * @author USER
  */
-public class Usuario extends javax.swing.JPanel {
+public class NotificacionVen extends javax.swing.JPanel {
 
     /**
      * Creates new form Principal
      */
-    public Usuario() {
+    public NotificacionVen() {
         initComponents();
     }
 

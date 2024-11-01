@@ -4,11 +4,21 @@
  */
 package GUI;
 
-import Ventanas.Principal;
+import Ventanas.AgendaVen;
+import Ventanas.EventoVen;
+import Ventanas.NotificacionVen;
+import Ventanas.OrganizacionVen;
+import Ventanas.PrecioVen;
+import Ventanas.PrincipalVen;
+import Ventanas.RegistroVen;
+import Ventanas.RetroalimentacionVen;
+import Ventanas.UbicacionVen;
+import Ventanas.UsuarioVen;
 import java.awt.BorderLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import javax.swing.JPanel;
 
 /**
  *
@@ -31,6 +41,19 @@ public class Pagina extends javax.swing.JFrame {
         dateText.setText(now.format(DateTimeFormatter.ofPattern(" 'Hoy es' EEEE dd 'de' MMMM 'de' yyyy", spanishLocale) ));
     }
      
+     private void InitContent() { 
+        ShowJPanel(new PrincipalVen());
+    }
+     
+     private void ShowJPanel(JPanel p){
+        p.setSize(807, 543); 
+        p.setLocation(0,0);
+         
+        content.removeAll();
+        content.add(p, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,11 +73,12 @@ public class Pagina extends javax.swing.JFrame {
         btnAgenda = new javax.swing.JButton();
         btnUsuario = new javax.swing.JButton();
         btnOrganizacion = new javax.swing.JButton();
-        btnEvento = new javax.swing.JButton();
+        btnUbicacion = new javax.swing.JButton();
         btnNotificacion = new javax.swing.JButton();
         btnRetroalimentacion = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
         btnPrecio = new javax.swing.JButton();
+        btnEvento = new javax.swing.JButton();
         header = new javax.swing.JPanel();
         dateText = new javax.swing.JLabel();
         navText = new javax.swing.JLabel();
@@ -89,6 +113,11 @@ public class Pagina extends javax.swing.JFrame {
         btnPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPrincipal.setIconTextGap(10);
+        btnPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrincipalActionPerformed(evt);
+            }
+        });
 
         btnAgenda.setBackground(new java.awt.Color(231, 163, 95));
         btnAgenda.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
@@ -100,6 +129,11 @@ public class Pagina extends javax.swing.JFrame {
         btnAgenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgenda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnAgenda.setIconTextGap(10);
+        btnAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgendaActionPerformed(evt);
+            }
+        });
 
         btnUsuario.setBackground(new java.awt.Color(231, 163, 95));
         btnUsuario.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
@@ -111,6 +145,11 @@ public class Pagina extends javax.swing.JFrame {
         btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnUsuario.setIconTextGap(10);
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
 
         btnOrganizacion.setBackground(new java.awt.Color(231, 163, 95));
         btnOrganizacion.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
@@ -122,6 +161,91 @@ public class Pagina extends javax.swing.JFrame {
         btnOrganizacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnOrganizacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnOrganizacion.setIconTextGap(10);
+        btnOrganizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrganizacionActionPerformed(evt);
+            }
+        });
+
+        btnUbicacion.setBackground(new java.awt.Color(231, 163, 95));
+        btnUbicacion.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnUbicacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnUbicacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ubicacion.png"))); // NOI18N
+        btnUbicacion.setText("Ubicación");
+        btnUbicacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnUbicacion.setBorderPainted(false);
+        btnUbicacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUbicacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnUbicacion.setIconTextGap(10);
+        btnUbicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUbicacionActionPerformed(evt);
+            }
+        });
+
+        btnNotificacion.setBackground(new java.awt.Color(231, 163, 95));
+        btnNotificacion.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnNotificacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnNotificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/notificacion.png"))); // NOI18N
+        btnNotificacion.setText("Notificación");
+        btnNotificacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnNotificacion.setBorderPainted(false);
+        btnNotificacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNotificacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNotificacion.setIconTextGap(10);
+        btnNotificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNotificacionActionPerformed(evt);
+            }
+        });
+
+        btnRetroalimentacion.setBackground(new java.awt.Color(231, 163, 95));
+        btnRetroalimentacion.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnRetroalimentacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnRetroalimentacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/retroalimentacion.png"))); // NOI18N
+        btnRetroalimentacion.setText("Retroalimentación");
+        btnRetroalimentacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnRetroalimentacion.setBorderPainted(false);
+        btnRetroalimentacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRetroalimentacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRetroalimentacion.setIconTextGap(10);
+        btnRetroalimentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetroalimentacionActionPerformed(evt);
+            }
+        });
+
+        btnRegistro.setBackground(new java.awt.Color(231, 163, 95));
+        btnRegistro.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/registro.png"))); // NOI18N
+        btnRegistro.setText("Registro");
+        btnRegistro.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnRegistro.setBorderPainted(false);
+        btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRegistro.setIconTextGap(10);
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroActionPerformed(evt);
+            }
+        });
+
+        btnPrecio.setBackground(new java.awt.Color(231, 163, 95));
+        btnPrecio.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        btnPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        btnPrecio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/precio.png"))); // NOI18N
+        btnPrecio.setText("Precio");
+        btnPrecio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnPrecio.setBorderPainted(false);
+        btnPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPrecio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPrecio.setIconTextGap(10);
+        btnPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrecioActionPerformed(evt);
+            }
+        });
 
         btnEvento.setBackground(new java.awt.Color(231, 163, 95));
         btnEvento.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
@@ -139,57 +263,13 @@ public class Pagina extends javax.swing.JFrame {
             }
         });
 
-        btnNotificacion.setBackground(new java.awt.Color(231, 163, 95));
-        btnNotificacion.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        btnNotificacion.setForeground(new java.awt.Color(0, 0, 0));
-        btnNotificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/notificacion.png"))); // NOI18N
-        btnNotificacion.setText("Notificación");
-        btnNotificacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        btnNotificacion.setBorderPainted(false);
-        btnNotificacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNotificacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnNotificacion.setIconTextGap(10);
-
-        btnRetroalimentacion.setBackground(new java.awt.Color(231, 163, 95));
-        btnRetroalimentacion.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        btnRetroalimentacion.setForeground(new java.awt.Color(0, 0, 0));
-        btnRetroalimentacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/retroalimentacion.png"))); // NOI18N
-        btnRetroalimentacion.setText("Retroalimentación");
-        btnRetroalimentacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        btnRetroalimentacion.setBorderPainted(false);
-        btnRetroalimentacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRetroalimentacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnRetroalimentacion.setIconTextGap(10);
-
-        btnRegistro.setBackground(new java.awt.Color(231, 163, 95));
-        btnRegistro.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
-        btnRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/registro.png"))); // NOI18N
-        btnRegistro.setText("Registro");
-        btnRegistro.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        btnRegistro.setBorderPainted(false);
-        btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegistro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnRegistro.setIconTextGap(10);
-
-        btnPrecio.setBackground(new java.awt.Color(231, 163, 95));
-        btnPrecio.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        btnPrecio.setForeground(new java.awt.Color(0, 0, 0));
-        btnPrecio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/precio.png"))); // NOI18N
-        btnPrecio.setText("Precio");
-        btnPrecio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        btnPrecio.setBorderPainted(false);
-        btnPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPrecio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnPrecio.setIconTextGap(10);
-
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnUbicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnAgenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnOrganizacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -202,6 +282,7 @@ public class Pagina extends javax.swing.JFrame {
                     .addComponent(appname)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
+            .addComponent(btnEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,6 +298,8 @@ public class Pagina extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnOrganizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,7 +311,7 @@ public class Pagina extends javax.swing.JFrame {
                 .addComponent(btnNotificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRetroalimentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         header.setBackground(new java.awt.Color(58, 126, 145));
@@ -295,7 +378,7 @@ public class Pagina extends javax.swing.JFrame {
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 877, Short.MAX_VALUE)
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backgroundLayout.createSequentialGroup()
@@ -327,9 +410,45 @@ public class Pagina extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
+    private void btnUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbicacionActionPerformed
+        ShowJPanel(new UbicacionVen());
+    }//GEN-LAST:event_btnUbicacionActionPerformed
+
     private void btnEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEventoActionPerformed
-        // TODO add your handling code here:
+        ShowJPanel(new EventoVen());
     }//GEN-LAST:event_btnEventoActionPerformed
+
+    private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
+        ShowJPanel(new PrincipalVen());
+    }//GEN-LAST:event_btnPrincipalActionPerformed
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+        ShowJPanel(new UsuarioVen());
+    }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendaActionPerformed
+        ShowJPanel(new AgendaVen());
+    }//GEN-LAST:event_btnAgendaActionPerformed
+
+    private void btnOrganizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrganizacionActionPerformed
+        ShowJPanel(new OrganizacionVen());
+    }//GEN-LAST:event_btnOrganizacionActionPerformed
+
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+        ShowJPanel(new RegistroVen());
+    }//GEN-LAST:event_btnRegistroActionPerformed
+
+    private void btnPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrecioActionPerformed
+        ShowJPanel(new PrecioVen());
+    }//GEN-LAST:event_btnPrecioActionPerformed
+
+    private void btnNotificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotificacionActionPerformed
+        ShowJPanel(new NotificacionVen());
+    }//GEN-LAST:event_btnNotificacionActionPerformed
+
+    private void btnRetroalimentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetroalimentacionActionPerformed
+        ShowJPanel(new RetroalimentacionVen());
+    }//GEN-LAST:event_btnRetroalimentacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,6 +496,7 @@ public class Pagina extends javax.swing.JFrame {
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnRegistro;
     private javax.swing.JButton btnRetroalimentacion;
+    private javax.swing.JButton btnUbicacion;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JPanel content;
     private javax.swing.JLabel dateText;
@@ -388,14 +508,4 @@ public class Pagina extends javax.swing.JFrame {
     private javax.swing.JLabel navText;
     // End of variables declaration//GEN-END:variables
 
-    private void InitContent() {
-        Principal pl = new Principal (); 
-         pl.setSize(807, 543); 
-         pl.setLocation(0,0);
-         
-         content.removeAll();
-         content.add(pl, BorderLayout.CENTER);
-         content.revalidate();
-         content.repaint();
-    }
 }

@@ -8,12 +8,12 @@ package Ventanas;
  *
  * @author USER
  */
-public class Principal extends javax.swing.JPanel {
+public class PrincipalVen extends javax.swing.JPanel {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public PrincipalVen() {
         initComponents();
     }
 
@@ -42,7 +42,7 @@ public class Principal extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(807, 543));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(250, 248, 233));
 
         jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -65,7 +65,7 @@ public class Principal extends javax.swing.JPanel {
         jLabel2.setText("¡Hola, [Nombre]! ¿Listo para crear un evento memorable? ");
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(115, 75, 70));
         jLabel1.setText("¡Bienvenido!");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/principal1.1..png"))); // NOI18N
@@ -98,7 +98,7 @@ public class Principal extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText(" Todo lo que necesitas está aquí a un clic.");
+        jLabel8.setText("Todo lo que necesitas está aquí a un clic.");
 
         jLabel9.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
