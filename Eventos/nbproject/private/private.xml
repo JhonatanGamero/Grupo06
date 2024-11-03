@@ -5,18 +5,25 @@
         <group>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/GUI/Pagina.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/GUI/RegistrosdeUsuarios.java</file>
-            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/Usuario.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/UsuarioVen.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/OrganizacionVen.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/AgendaVen.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/PrecioVen.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/NotificacionVen.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Agenda.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Ubicacion.java</file>
-            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/Principal.java</file>
-            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/ArrayList/OrganizadorList.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/RetroalimentacionVen.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Registro.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Persona.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Precio.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Retroalimentacion.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Notificaciones.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/RegistroVen.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Usuarios.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/PrincipalVen.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/EventoVen.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Participantes.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Ventanas/UbicacionVen.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Organizacion.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Organizador.java</file>
             <file>file:/C:/Users/USER/OneDrive/Documentos/Grupo06/Grupo06/Eventos/src/Clases/Eventos.java</file>

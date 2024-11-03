@@ -43,6 +43,7 @@ public class PrincipalVen extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(807, 543));
 
         jPanel1.setBackground(new java.awt.Color(250, 248, 233));
+        jPanel1.setPreferredSize(new java.awt.Dimension(807, 543));
 
         jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
