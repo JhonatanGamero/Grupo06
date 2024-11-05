@@ -2,6 +2,9 @@
 package GUI;
 
 import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 public class RegistrosdeUsuarios extends javax.swing.JFrame {
 
@@ -9,8 +12,68 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
     
     public RegistrosdeUsuarios() {
         initComponents();
+        agregarListeners();
     }
+    
+    private void agregarListeners() {
+        // Listener para el campo de usuario
+        userTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
+                    userTxt.setText("");
+                    userTxt.setForeground(new java.awt.Color(0, 0, 0));
+                }
+            }
 
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (userTxt.getText().isEmpty()) {
+                    userTxt.setText("Ingrese su nombre de usuario");
+                    userTxt.setForeground(new java.awt.Color(153, 153, 153));
+                }
+            }
+        });
+
+        // Listener para el campo de contraseña
+        passTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (String.valueOf(passTxt.getPassword()).equals("**")) {
+                    passTxt.setText("");
+                    passTxt.setForeground(new java.awt.Color(0, 0, 0));
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (String.valueOf(passTxt.getPassword()).isEmpty()) {
+                    passTxt.setText("**");
+                    passTxt.setForeground(new java.awt.Color(204, 204, 204));
+                }
+            }
+        });
+
+        // Listener para el campo de código
+        codigoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (codigoTxt.getText().equals("Ingrese su código de usuario")) {
+                    codigoTxt.setText("");
+                    codigoTxt.setForeground(new java.awt.Color(0, 0, 0));
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (codigoTxt.getText().isEmpty()) {
+                    codigoTxt.setText("Ingrese su código de usuario");
+                    codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
+                }
+            }
+        });
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -83,7 +146,7 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
                 userTxtMousePressed(evt);
             }
         });
-        jPanel3.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 430, 20));
+        jPanel3.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 360, 20));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 430, 10));
 
         passTxt.setBackground(new java.awt.Color(255, 255, 255));
@@ -101,10 +164,13 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
                 passTxtActionPerformed(evt);
             }
         });
-        jPanel3.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 430, 20));
+        jPanel3.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 360, 20));
 
         loginBtn.setBackground(new java.awt.Color(58, 126, 145));
         loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginBtnMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 loginBtnMouseEntered(evt);
             }
@@ -119,6 +185,15 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
         loginBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginBtnTxt.setText("Entrar");
         loginBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginBtnTxt.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                loginBtnTxtAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         loginBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginBtnTxtMouseClicked(evt);
@@ -247,7 +322,7 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
                 codigoTxtMousePressed(evt);
             }
         });
-        jPanel3.add(codigoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 430, 20));
+        jPanel3.add(codigoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 360, 20));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 430, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -329,7 +404,7 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_userTxtMousePressed
 
     private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
-        if (codigoTxt.getText() .isEmpty()){  
+       if (codigoTxt.getText() .isEmpty()){  
             codigoTxt.setText("Ingrese su código de usuario");
             codigoTxt.setForeground(Color.gray);
         }
@@ -344,8 +419,44 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_passTxtMousePressed
 
     private void loginBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseClicked
-        //VER QUE HACER DESPUES DE INICIAR SESION
-        javax.swing.JOptionPane.showMessageDialog(this,"Intento de login con los datos:\nUsuario: "+userTxt.getText()+"\nContraseña: "+String.valueOf(passTxt.getPassword()), "LOGIN",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            // Validación del código
+            if (codigoTxt.getText().length() == 0) {
+                JOptionPane.showMessageDialog(this, "Ingresar su código");
+                return;
+            }
+
+            String codigo = codigoTxt.getText();
+            Pattern validarCodigo = Pattern.compile("^[0-9]{8}$");
+            Matcher validandoCodigo = validarCodigo.matcher(codigo);
+            if (!validandoCodigo.matches()) {
+                JOptionPane.showMessageDialog(this, "El código solo puede tener números y un máximo de 8 dígitos");
+                return;
+            }
+
+            // Validación del usuario
+            if (userTxt.getText().length() == 0) {
+                JOptionPane.showMessageDialog(this, "Ingresar su usuario");
+                return;
+            }
+
+            String nombre = userTxt.getText();
+            Pattern validarNombre = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$");
+            Matcher nombreValida = validarNombre.matcher(nombre);
+            if (!nombreValida.matches()) {
+                JOptionPane.showMessageDialog(this, "El nombre solo puede contener letras");
+                return;
+            }
+
+            // Validación de la contraseña
+            if (passTxt.getPassword().length==0) {
+                JOptionPane.showMessageDialog(this, "Ingresar su contraseña");
+                return;
+            } 
+            
+            // Si todas las validaciones son correctas, se abre la página y se cierra la ventana actual
+            Pagina pagina = new Pagina();
+            pagina.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_loginBtnTxtMouseClicked
 
     private void btnOrganizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrganizadorActionPerformed
@@ -366,6 +477,14 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
             passTxt.setForeground(Color.gray);
         }
     }//GEN-LAST:event_codigoTxtMousePressed
+
+    private void loginBtnTxtAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_loginBtnTxtAncestorAdded
+     
+    }//GEN-LAST:event_loginBtnTxtAncestorAdded
+
+    private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginBtnMouseClicked
 
     /**
      * @param args the command line arguments
