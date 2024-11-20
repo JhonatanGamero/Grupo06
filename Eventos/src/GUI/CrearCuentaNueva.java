@@ -17,118 +17,120 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
     
     private void agregarListeners() {
         // Listener para el campo de usuario
-        userTxt.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
-                    userTxt.setText("");
-                    userTxt.setForeground(new java.awt.Color(0, 0, 0));
-                }
+    userTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
+                userTxt.setText("");
+                userTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
+        }
 
-            @Override
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                if (userTxt.getText().isEmpty()) {
-                    userTxt.setText("Ingrese su nombre de usuario");
-                    userTxt.setForeground(new java.awt.Color(153, 153, 153));
-                }
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            if (userTxt.getText().isEmpty()) {
+                userTxt.setText("Ingrese su nombre de usuario");
+                userTxt.setForeground(new java.awt.Color(153, 153, 153));
             }
-        });
+        }
+    });
 
-        // Listener para el campo de contraseña
-        passTxt.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (String.valueOf(passTxt.getPassword()).equals("**")) {
-                    passTxt.setText("");
-                    passTxt.setForeground(new java.awt.Color(0, 0, 0));
-                }
+    // Listener para el campo de contraseña
+    passTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            if (String.valueOf(passTxt.getPassword()).equals("**")) {
+                passTxt.setText("");
+                passTxt.setEchoChar('\u2022'); // Establece un carácter de enmascaramiento
+                passTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
+        }
 
-            @Override
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                if (String.valueOf(passTxt.getPassword()).isEmpty()) {
-                    passTxt.setText("**");
-                    passTxt.setForeground(new java.awt.Color(204, 204, 204));
-                }
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            if (String.valueOf(passTxt.getPassword()).isEmpty()) {
+                passTxt.setText("**");
+                passTxt.setEchoChar((char) 0); // Remueve el carácter de enmascaramiento cuando está vacío
+                passTxt.setForeground(new java.awt.Color(204, 204, 204));
             }
-        });
+        }
+    });
 
-        // Listener para el campo de código
-        codigoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (codigoTxt.getText().equals("Ingrese su código de usuario")) {
-                    codigoTxt.setText("");
-                    codigoTxt.setForeground(new java.awt.Color(0, 0, 0));
-                }
+    // Listener para el campo de código
+    codigoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            if (codigoTxt.getText().equals("Ingrese su código de usuario")) {
+                codigoTxt.setText("");
+                codigoTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
-            
-            @Override
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                if (codigoTxt.getText().isEmpty()) {
-                    codigoTxt.setText("Ingrese su código de usuario");
-                    codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
-                }
-            }
-        });
+        }
         
-        //Listener para el campo de nombre
-        nombreTxt.addFocusListener(new java.awt.event.FocusAdapter(){
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (nombreTxt.getText().equals("Ingrese su nombre")){
-                    nombreTxt.setText("");
-                    nombreTxt.setForeground(new java.awt.Color(0, 0, 0));
-                }
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            if (codigoTxt.getText().isEmpty()) {
+                codigoTxt.setText("Ingrese su código de usuario");
+                codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
             }
-            
-            @Override
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                if (nombreTxt.getText().isEmpty()) {
-                    nombreTxt.setText("Ingrese su nombre");
-                    nombreTxt.setForeground(new java.awt.Color(153, 153, 153));
-                }
+        }
+    });
+    
+    // Listener para el campo de nombre
+    nombreTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            if (nombreTxt.getText().equals("Ingrese su nombre")) {
+                nombreTxt.setText("");
+                nombreTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
-        });
+        }
         
-        //Listener para el campo de género
-        generoTxt.addFocusListener(new java.awt.event.FocusAdapter(){
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (generoTxt.getText().equals("Ingrese su género")){
-                    generoTxt.setText("");
-                    generoTxt.setForeground(new java.awt.Color(0, 0, 0));
-                }
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            if (nombreTxt.getText().isEmpty()) {
+                nombreTxt.setText("Ingrese su nombre");
+                nombreTxt.setForeground(new java.awt.Color(153, 153, 153));
             }
-            
-            @Override
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                if (generoTxt.getText().isEmpty()) {
-                    generoTxt.setText("Ingrese su género");
-                    generoTxt.setForeground(new java.awt.Color(153, 153, 153));
-                }
+        }
+    });
+    
+    // Listener para el campo de género
+    generoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            if (generoTxt.getText().equals("Ingrese su género")) {
+                generoTxt.setText("");
+                generoTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
-        });
+        }
         
-        //Listener para el campo de correo electrónico
-        correoTxt.addFocusListener(new java.awt.event.FocusAdapter(){
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (correoTxt.getText().equals("Ingrese su correo electrónico")){
-                    correoTxt.setText("");
-                    correoTxt.setForeground(new java.awt.Color(0, 0, 0));
-                }
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            if (generoTxt.getText().isEmpty()) {
+                generoTxt.setText("Ingrese su género");
+                generoTxt.setForeground(new java.awt.Color(153, 153, 153));
             }
-            
-            @Override
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                if (correoTxt.getText().isEmpty()) {
-                    correoTxt.setText("Ingrese su correo electrónico");
-                    correoTxt.setForeground(new java.awt.Color(153, 153, 153));
-                }
+        }
+    });
+    
+    // Listener para el campo de correo electrónico
+    correoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            if (correoTxt.getText().equals("Ingrese su correo electrónico")) {
+                correoTxt.setText("");
+                correoTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
-        });
+        }
+        
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            if (correoTxt.getText().isEmpty()) {
+                correoTxt.setText("Ingrese su correo electrónico");
+                correoTxt.setForeground(new java.awt.Color(153, 153, 153));
+            }
+        }
+    });
     }
     
     @SuppressWarnings("unchecked")
