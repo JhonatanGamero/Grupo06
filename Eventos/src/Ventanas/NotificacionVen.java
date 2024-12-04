@@ -32,9 +32,6 @@ public class NotificacionVen extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(807, 543));
@@ -79,18 +76,6 @@ public class NotificacionVen extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("sobre cambios, confirmaciones de invitados y mucho más.");
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(115, 75, 70));
-        jLabel3.setText("Ajustes de notificación");
-
-        jLabel11.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Decide cómo y cuándo quieres recibir cada tipo de notificación");
-
-        jLabel12.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("para mantenerte informado sin distracciones innecesarias.");
-
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Relájate, nosotros te avisaremos de cualquier cambio importante en tu evento.");
@@ -102,9 +87,6 @@ public class NotificacionVen extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11)
                     .addComponent(jLabel9)
                     .addComponent(jLabel7)
                     .addComponent(jLabel1)
@@ -128,15 +110,9 @@ public class NotificacionVen extends javax.swing.JPanel {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addGap(158, 158, 158)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(40, 40, 40))
+                .addGap(95, 95, 95))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -154,10 +130,7 @@ public class NotificacionVen extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

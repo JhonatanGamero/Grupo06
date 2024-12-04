@@ -63,7 +63,7 @@ public class PrincipalVen extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("¡Hola, [Nombre]! ¿Listo para crear un evento memorable? ");
+        jLabel2.setText("¡Hola! ¿Listo para crear un evento memorable? ");
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(115, 75, 70));

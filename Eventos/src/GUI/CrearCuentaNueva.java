@@ -1,14 +1,16 @@
 
 package GUI;
 
+import ArrayList.UsuariosList;
+import Clases.Usuarios;
 import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 public class CrearCuentaNueva extends javax.swing.JFrame {
-
     int xMouse, yMouse;
+    UsuariosList nuevousuario = new UsuariosList();
     
     public CrearCuentaNueva() {
         initComponents();
@@ -172,6 +174,7 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         generoTxt = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
+        btnGuardarDatos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -463,6 +466,14 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         jPanel3.add(generoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 360, 20));
         jPanel3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 430, 10));
 
+        btnGuardarDatos.setText("GUARDAR DATOS");
+        btnGuardarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarDatosActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnGuardarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 650, 180, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -516,6 +527,7 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBtnMouseExited
 
     private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
+        try{
         if(nombreTxt.getText().isEmpty()){
            nombreTxt.setText("Ingrese su nombre");
            nombreTxt.setForeground(Color.gray);
@@ -540,9 +552,13 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
             passTxt.setText("********");
             passTxt.setForeground(Color.gray);
         }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_userTxtMousePressed
 
     private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
+       try{
         if(nombreTxt.getText().isEmpty()){
            nombreTxt.setText("Ingrese su nombre");
            nombreTxt.setForeground(Color.gray);
@@ -567,6 +583,9 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
             passTxt.setText("");
             passTxt.setForeground(Color.black);
         } 
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_passTxtMousePressed
 
     private void loginBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseClicked
@@ -642,7 +661,7 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
     }//GEN-LAST:event_codigoTxtMousePressed
 
     private void loginBtnTxtAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_loginBtnTxtAncestorAdded
-     
+     //
     }//GEN-LAST:event_loginBtnTxtAncestorAdded
 
     private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
@@ -741,10 +760,31 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_generoTxtMousePressed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void btnGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDatosActionPerformed
+    try{
+        Usuarios nusuario = new Usuarios();
+            nusuario.setNombre(nombreTxt.getText());
+            nusuario.setGenero(generoTxt.getText());
+            nusuario.setEmail(correoTxt.getText());
+            nusuario.setCodigoUsuario(Integer.parseInt(codigoTxt.getText()));
+            nusuario.setNombreUsuario(userTxt.getText());
+            if(btnOrganizador.isSelected()) nusuario.setRol("Organizador");
+            if(btnParticipante.isSelected()) nusuario.setRol("Participante");
+            nusuario.setContrasena(passTxt.getName());
+            
+            nuevousuario.agregar(nusuario);
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
+            
+            RegistroUsuarios_Nexus r = new RegistroUsuarios_Nexus(nuevousuario);
+            r.setVisible(true);
+            this.dispose();
+    }
+    catch(Exception e){
+        JOptionPane.showMessageDialog(this, e.getMessage());
+    }
+    }//GEN-LAST:event_btnGuardarDatosActionPerformed
+
+   public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -758,15 +798,14 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CrearCuentaNueva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroUsuarios_Nexus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CrearCuentaNueva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroUsuarios_Nexus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CrearCuentaNueva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroUsuarios_Nexus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CrearCuentaNueva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroUsuarios_Nexus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -776,7 +815,6 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Codigo;
     private javax.swing.JLabel Contraseña;
@@ -789,6 +827,7 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel Usuario;
     private javax.swing.JLabel appname;
+    private javax.swing.JButton btnGuardarDatos;
     private javax.swing.JRadioButton btnOrganizador;
     private javax.swing.JRadioButton btnParticipante;
     private javax.swing.ButtonGroup buttonGroup1;

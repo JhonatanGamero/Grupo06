@@ -16,10 +16,6 @@ public class UsuariosList {
          listaUsuarios.remove(u);
     }
     
-    public Usuarios obtener(int pos){
-        return listaUsuarios.get(pos);
-    }
-    
     public List<Usuarios> listar (){
          return this.listaUsuarios;
     }

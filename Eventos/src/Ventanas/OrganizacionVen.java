@@ -75,7 +75,7 @@ public class OrganizacionVen extends javax.swing.JPanel {
                             .addComponent(jLabel8)
                             .addComponent(jLabel3)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
+                        .addGap(169, 169, 169)
                         .addComponent(jLabel1)))
                 .addContainerGap(154, Short.MAX_VALUE))
         );
@@ -88,13 +88,13 @@ public class OrganizacionVen extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addGap(29, 29, 29))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
