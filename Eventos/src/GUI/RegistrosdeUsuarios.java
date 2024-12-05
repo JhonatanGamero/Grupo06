@@ -17,58 +17,58 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
     
     private void agregarListeners() {
         // Listener para el campo de usuario
-        userTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        V_userTxt.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
-                if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
-                    userTxt.setText("");
-                    userTxt.setForeground(new java.awt.Color(0, 0, 0));
+                if (V_userTxt.getText().equals("Ingrese su nombre de usuario")) {
+                    V_userTxt.setText("");
+                    V_userTxt.setForeground(new java.awt.Color(0, 0, 0));
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                if (userTxt.getText().isEmpty()) {
-                    userTxt.setText("Ingrese su nombre de usuario");
-                    userTxt.setForeground(new java.awt.Color(153, 153, 153));
+                if (V_userTxt.getText().isEmpty()) {
+                    V_userTxt.setText("Ingrese su nombre de usuario");
+                    V_userTxt.setForeground(new java.awt.Color(153, 153, 153));
                 }
             }
         });
 
         // Listener para el campo de contraseña
-        passTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        V_passTxt.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
-                if (String.valueOf(passTxt.getPassword()).equals("**")) {
-                    passTxt.setText("");
-                    passTxt.setForeground(new java.awt.Color(0, 0, 0));
+                if (String.valueOf(V_passTxt.getPassword()).equals("**")) {
+                    V_passTxt.setText("");
+                    V_passTxt.setForeground(new java.awt.Color(0, 0, 0));
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                if (String.valueOf(passTxt.getPassword()).isEmpty()) {
-                    passTxt.setText("**");
-                    passTxt.setForeground(new java.awt.Color(204, 204, 204));
+                if (String.valueOf(V_passTxt.getPassword()).isEmpty()) {
+                    V_passTxt.setText("**");
+                    V_passTxt.setForeground(new java.awt.Color(204, 204, 204));
                 }
             }
         });
 
         // Listener para el campo de código
-        codigoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        V_codigoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
-                if (codigoTxt.getText().equals("Ingrese su código de usuario")) {
-                    codigoTxt.setText("");
-                    codigoTxt.setForeground(new java.awt.Color(0, 0, 0));
+                if (V_codigoTxt.getText().equals("Ingrese su código de usuario")) {
+                    V_codigoTxt.setText("");
+                    V_codigoTxt.setForeground(new java.awt.Color(0, 0, 0));
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                if (codigoTxt.getText().isEmpty()) {
-                    codigoTxt.setText("Ingrese su código de usuario");
-                    codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
+                if (V_codigoTxt.getText().isEmpty()) {
+                    V_codigoTxt.setText("Ingrese su código de usuario");
+                    V_codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
                 }
             }
         });
@@ -80,26 +80,26 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
-        Logo = new javax.swing.JLabel();
-        Local = new javax.swing.JLabel();
-        Titulo = new javax.swing.JLabel();
-        Contraseña = new javax.swing.JLabel();
+        V_Logo = new javax.swing.JLabel();
+        V_Local = new javax.swing.JLabel();
+        V_Titulo = new javax.swing.JLabel();
+        V_Contraseña = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        Usuario = new javax.swing.JLabel();
-        userTxt = new javax.swing.JTextField();
+        V_Usuario = new javax.swing.JLabel();
+        V_userTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        passTxt = new javax.swing.JPasswordField();
+        V_passTxt = new javax.swing.JPasswordField();
         loginBtn = new javax.swing.JPanel();
-        loginBtnTxt = new javax.swing.JLabel();
-        Decoracion = new javax.swing.JLabel();
+        V_loginBtn = new javax.swing.JLabel();
+        V_Decoracion = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         ExitBtn = new javax.swing.JPanel();
         Exittxt = new javax.swing.JLabel();
-        Rol = new javax.swing.JLabel();
-        btnOrganizador = new javax.swing.JRadioButton();
-        btnParticipante = new javax.swing.JRadioButton();
-        codigo = new javax.swing.JLabel();
-        codigoTxt = new javax.swing.JTextField();
+        V_Rol = new javax.swing.JLabel();
+        V_btnOrganizador = new javax.swing.JRadioButton();
+        V_btnParticipante = new javax.swing.JRadioButton();
+        V_codigo = new javax.swing.JLabel();
+        V_codigoTxt = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -111,60 +111,60 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(153, 153, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.jpg"))); // NOI18N
-        jPanel3.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, -1, -1));
+        V_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.jpg"))); // NOI18N
+        jPanel3.add(V_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, -1, -1));
 
-        Local.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/local.jpg"))); // NOI18N
-        jPanel3.add(Local, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, 640));
+        V_Local.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/local.jpg"))); // NOI18N
+        jPanel3.add(V_Local, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, 640));
 
-        Titulo.setBackground(new java.awt.Color(0, 0, 0));
-        Titulo.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        Titulo.setForeground(new java.awt.Color(0, 0, 0));
-        Titulo.setText("INICIAR SESIÓN");
-        jPanel3.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        V_Titulo.setBackground(new java.awt.Color(0, 0, 0));
+        V_Titulo.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        V_Titulo.setForeground(new java.awt.Color(0, 0, 0));
+        V_Titulo.setText("INICIAR SESIÓN");
+        jPanel3.add(V_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
-        Contraseña.setBackground(new java.awt.Color(0, 0, 0));
-        Contraseña.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        Contraseña.setForeground(new java.awt.Color(0, 0, 0));
-        Contraseña.setText("CONTRASEÑA ");
-        jPanel3.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
+        V_Contraseña.setBackground(new java.awt.Color(0, 0, 0));
+        V_Contraseña.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Contraseña.setForeground(new java.awt.Color(0, 0, 0));
+        V_Contraseña.setText("CONTRASEÑA ");
+        jPanel3.add(V_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, 430, 10));
 
-        Usuario.setBackground(new java.awt.Color(0, 0, 0));
-        Usuario.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        Usuario.setForeground(new java.awt.Color(0, 0, 0));
-        Usuario.setText("USUARIO ");
-        jPanel3.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
+        V_Usuario.setBackground(new java.awt.Color(0, 0, 0));
+        V_Usuario.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Usuario.setForeground(new java.awt.Color(0, 0, 0));
+        V_Usuario.setText("USUARIO ");
+        jPanel3.add(V_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
-        userTxt.setBackground(new java.awt.Color(255, 255, 255));
-        userTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        userTxt.setForeground(new java.awt.Color(153, 153, 153));
-        userTxt.setText("Ingrese su nombre de usuario");
-        userTxt.setBorder(null);
-        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_userTxt.setBackground(new java.awt.Color(255, 255, 255));
+        V_userTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        V_userTxt.setForeground(new java.awt.Color(153, 153, 153));
+        V_userTxt.setText("Ingrese su nombre de usuario");
+        V_userTxt.setBorder(null);
+        V_userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxtMousePressed(evt);
+                V_userTxtMousePressed(evt);
             }
         });
-        jPanel3.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 360, 20));
+        jPanel3.add(V_userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 360, 20));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 430, 10));
 
-        passTxt.setBackground(new java.awt.Color(255, 255, 255));
-        passTxt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        passTxt.setForeground(new java.awt.Color(204, 204, 204));
-        passTxt.setText("********");
-        passTxt.setBorder(null);
-        passTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_passTxt.setBackground(new java.awt.Color(255, 255, 255));
+        V_passTxt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        V_passTxt.setForeground(new java.awt.Color(204, 204, 204));
+        V_passTxt.setText("********");
+        V_passTxt.setBorder(null);
+        V_passTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                passTxtMousePressed(evt);
+                V_passTxtMousePressed(evt);
             }
         });
-        passTxt.addActionListener(new java.awt.event.ActionListener() {
+        V_passTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passTxtActionPerformed(evt);
+                V_passTxtActionPerformed(evt);
             }
         });
-        jPanel3.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 360, 20));
+        jPanel3.add(V_passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 360, 20));
 
         loginBtn.setBackground(new java.awt.Color(58, 126, 145));
         loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -179,30 +179,30 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
             }
         });
 
-        loginBtnTxt.setBackground(new java.awt.Color(240, 240, 240));
-        loginBtnTxt.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        loginBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        loginBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginBtnTxt.setText("Entrar");
-        loginBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginBtnTxt.addAncestorListener(new javax.swing.event.AncestorListener() {
+        V_loginBtn.setBackground(new java.awt.Color(240, 240, 240));
+        V_loginBtn.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        V_loginBtn.setForeground(new java.awt.Color(255, 255, 255));
+        V_loginBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        V_loginBtn.setText("Entrar");
+        V_loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        V_loginBtn.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                loginBtnTxtAncestorAdded(evt);
+                V_loginBtnAncestorAdded(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        loginBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginBtnTxtMouseClicked(evt);
+                V_loginBtnMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                loginBtnTxtMouseEntered(evt);
+                V_loginBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                loginBtnTxtMouseExited(evt);
+                V_loginBtnMouseExited(evt);
             }
         });
 
@@ -212,19 +212,19 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
             loginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginBtnLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(loginBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(V_loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         loginBtnLayout.setVerticalGroup(
             loginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginBtnLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(loginBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(V_loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 140, 50));
 
-        Decoracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/circulos.png"))); // NOI18N
-        jPanel3.add(Decoracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 110, 70));
+        V_Decoracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/circulos.png"))); // NOI18N
+        jPanel3.add(V_Decoracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 110, 70));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -289,40 +289,40 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
 
         jPanel3.add(ExitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(913, 0, 60, 40));
 
-        Rol.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        Rol.setForeground(new java.awt.Color(0, 0, 0));
-        Rol.setText("ROL");
-        jPanel3.add(Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, -1, -1));
+        V_Rol.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Rol.setForeground(new java.awt.Color(0, 0, 0));
+        V_Rol.setText("ROL");
+        jPanel3.add(V_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, -1, -1));
 
-        buttonGroup1.add(btnOrganizador);
-        btnOrganizador.setText("Organizador");
-        btnOrganizador.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(V_btnOrganizador);
+        V_btnOrganizador.setText("Organizador");
+        V_btnOrganizador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrganizadorActionPerformed(evt);
+                V_btnOrganizadorActionPerformed(evt);
             }
         });
-        jPanel3.add(btnOrganizador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, -1, -1));
+        jPanel3.add(V_btnOrganizador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, -1, -1));
 
-        buttonGroup1.add(btnParticipante);
-        btnParticipante.setText("Participante");
-        jPanel3.add(btnParticipante, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, -1, -1));
+        buttonGroup1.add(V_btnParticipante);
+        V_btnParticipante.setText("Participante");
+        jPanel3.add(V_btnParticipante, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, -1, -1));
 
-        codigo.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        codigo.setForeground(new java.awt.Color(0, 0, 0));
-        codigo.setText("CÓDIGO");
-        jPanel3.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+        V_codigo.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_codigo.setForeground(new java.awt.Color(0, 0, 0));
+        V_codigo.setText("CÓDIGO");
+        jPanel3.add(V_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
-        codigoTxt.setBackground(new java.awt.Color(255, 255, 255));
-        codigoTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
-        codigoTxt.setText("Ingrese su código de usuario");
-        codigoTxt.setBorder(null);
-        codigoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_codigoTxt.setBackground(new java.awt.Color(255, 255, 255));
+        V_codigoTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        V_codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
+        V_codigoTxt.setText("Ingrese su código de usuario");
+        V_codigoTxt.setBorder(null);
+        V_codigoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                codigoTxtMousePressed(evt);
+                V_codigoTxtMousePressed(evt);
             }
         });
-        jPanel3.add(codigoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 360, 20));
+        jPanel3.add(V_codigoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 360, 20));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 430, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -339,9 +339,9 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxtActionPerformed
+    private void V_passTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_V_passTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passTxtActionPerformed
+    }//GEN-LAST:event_V_passTxtActionPerformed
 
     private void jPanel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MousePressed
         xMouse = evt.getX();
@@ -372,13 +372,13 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
         Exittxt.setForeground(Color.black);
     }//GEN-LAST:event_ExittxtMouseExited
 
-    private void loginBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseEntered
+    private void V_loginBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_loginBtnMouseEntered
             loginBtn.setBackground(new Color(126, 187, 204));
-    }//GEN-LAST:event_loginBtnTxtMouseEntered
+    }//GEN-LAST:event_V_loginBtnMouseEntered
 
-    private void loginBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseExited
+    private void V_loginBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_loginBtnMouseExited
             loginBtn.setBackground(new Color(58,126,145));
-    }//GEN-LAST:event_loginBtnTxtMouseExited
+    }//GEN-LAST:event_V_loginBtnMouseExited
 
     private void loginBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseEntered
     //
@@ -388,44 +388,44 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
     //
     }//GEN-LAST:event_loginBtnMouseExited
 
-    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
-        if (codigoTxt.getText() .isEmpty()){  
-            codigoTxt.setText("Ingrese su código de usuario");
-            codigoTxt.setForeground(Color.gray);
+    private void V_userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_userTxtMousePressed
+        if (V_codigoTxt.getText() .isEmpty()){  
+            V_codigoTxt.setText("Ingrese su código de usuario");
+            V_codigoTxt.setForeground(Color.gray);
         }
-        if (userTxt.getText() .equals("Ingrese su nombre de usuario")){  
-            userTxt.setText("");
-            userTxt.setForeground(Color.black);
+        if (V_userTxt.getText() .equals("Ingrese su nombre de usuario")){  
+            V_userTxt.setText("");
+            V_userTxt.setForeground(Color.black);
         }
-        if (String.valueOf(passTxt.getPassword()) .isEmpty()){  
-            passTxt.setText("********");
-            passTxt.setForeground(Color.gray);
+        if (String.valueOf(V_passTxt.getPassword()) .isEmpty()){  
+            V_passTxt.setText("********");
+            V_passTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_userTxtMousePressed
+    }//GEN-LAST:event_V_userTxtMousePressed
 
-    private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
-       if (codigoTxt.getText() .isEmpty()){  
-            codigoTxt.setText("Ingrese su código de usuario");
-            codigoTxt.setForeground(Color.gray);
+    private void V_passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_passTxtMousePressed
+       if (V_codigoTxt.getText() .isEmpty()){  
+            V_codigoTxt.setText("Ingrese su código de usuario");
+            V_codigoTxt.setForeground(Color.gray);
         }
-        if (userTxt.getText() .isEmpty()){  
-            userTxt.setText("Ingrese su nombre de usuario");
-            userTxt.setForeground(Color.gray);
+        if (V_userTxt.getText() .isEmpty()){  
+            V_userTxt.setText("Ingrese su nombre de usuario");
+            V_userTxt.setForeground(Color.gray);
         } 
-        if (String.valueOf(passTxt.getPassword()) .equals("********")){
-            passTxt.setText("");
-            passTxt.setForeground(Color.black);
+        if (String.valueOf(V_passTxt.getPassword()) .equals("********")){
+            V_passTxt.setText("");
+            V_passTxt.setForeground(Color.black);
         } 
-    }//GEN-LAST:event_passTxtMousePressed
+    }//GEN-LAST:event_V_passTxtMousePressed
 
-    private void loginBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseClicked
+    private void V_loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_loginBtnMouseClicked
             // Validación del código
-            if (codigoTxt.getText().length() == 0) {
+            if (V_codigoTxt.getText().length() == 0) {
                 JOptionPane.showMessageDialog(this, "Ingresar su código");
                 return;
             }
 
-            String codigo = codigoTxt.getText();
+            String codigo = V_codigoTxt.getText();
             Pattern validarCodigo = Pattern.compile("^[0-9]{8}$");
             Matcher validandoCodigo = validarCodigo.matcher(codigo);
             if (!validandoCodigo.matches()) {
@@ -434,12 +434,12 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
             }
 
             // Validación del usuario
-            if (userTxt.getText().length() == 0) {
+            if (V_userTxt.getText().length() == 0) {
                 JOptionPane.showMessageDialog(this, "Ingresar su usuario");
                 return;
             }
 
-            String nombre = userTxt.getText();
+            String nombre = V_userTxt.getText();
             Pattern validarNombre = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$");
             Matcher nombreValida = validarNombre.matcher(nombre);
             if (!nombreValida.matches()) {
@@ -448,7 +448,7 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
             }
 
             // Validación de la contraseña
-            if (passTxt.getPassword().length==0) {
+            if (V_passTxt.getPassword().length==0) {
                 JOptionPane.showMessageDialog(this, "Ingresar su contraseña");
                 return;
             } 
@@ -457,30 +457,30 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
             Pagina pagina = new Pagina();
             pagina.setVisible(true);
             this.dispose();
-    }//GEN-LAST:event_loginBtnTxtMouseClicked
+    }//GEN-LAST:event_V_loginBtnMouseClicked
 
-    private void btnOrganizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrganizadorActionPerformed
+    private void V_btnOrganizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_V_btnOrganizadorActionPerformed
         // 
-    }//GEN-LAST:event_btnOrganizadorActionPerformed
+    }//GEN-LAST:event_V_btnOrganizadorActionPerformed
 
-    private void codigoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_codigoTxtMousePressed
-        if (codigoTxt.getText() .equals("Ingrese su código de usuario")){  
-            codigoTxt.setText("");
-            codigoTxt.setForeground(Color.black);
+    private void V_codigoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_codigoTxtMousePressed
+        if (V_codigoTxt.getText() .equals("Ingrese su código de usuario")){  
+            V_codigoTxt.setText("");
+            V_codigoTxt.setForeground(Color.black);
         }
-        if (userTxt.getText() .isEmpty()){  
-            userTxt.setText("Ingrese su nombre de usuario");
-            userTxt.setForeground(Color.gray);
+        if (V_userTxt.getText() .isEmpty()){  
+            V_userTxt.setText("Ingrese su nombre de usuario");
+            V_userTxt.setForeground(Color.gray);
         }
-        if (String.valueOf(passTxt.getPassword()) .isEmpty()){  
-            passTxt.setText("********");
-            passTxt.setForeground(Color.gray);
+        if (String.valueOf(V_passTxt.getPassword()) .isEmpty()){  
+            V_passTxt.setText("********");
+            V_passTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_codigoTxtMousePressed
+    }//GEN-LAST:event_V_codigoTxtMousePressed
 
-    private void loginBtnTxtAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_loginBtnTxtAncestorAdded
+    private void V_loginBtnAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_V_loginBtnAncestorAdded
      
-    }//GEN-LAST:event_loginBtnTxtAncestorAdded
+    }//GEN-LAST:event_V_loginBtnAncestorAdded
 
     private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
         // TODO add your handling code here:
@@ -522,28 +522,28 @@ public class RegistrosdeUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Contraseña;
-    private javax.swing.JLabel Decoracion;
     private javax.swing.JPanel ExitBtn;
     private javax.swing.JLabel Exittxt;
-    private javax.swing.JLabel Local;
-    private javax.swing.JLabel Logo;
-    private javax.swing.JLabel Rol;
-    private javax.swing.JLabel Titulo;
-    private javax.swing.JLabel Usuario;
-    private javax.swing.JRadioButton btnOrganizador;
-    private javax.swing.JRadioButton btnParticipante;
+    private javax.swing.JLabel V_Contraseña;
+    private javax.swing.JLabel V_Decoracion;
+    private javax.swing.JLabel V_Local;
+    private javax.swing.JLabel V_Logo;
+    private javax.swing.JLabel V_Rol;
+    private javax.swing.JLabel V_Titulo;
+    private javax.swing.JLabel V_Usuario;
+    private javax.swing.JRadioButton V_btnOrganizador;
+    private javax.swing.JRadioButton V_btnParticipante;
+    private javax.swing.JLabel V_codigo;
+    private javax.swing.JTextField V_codigoTxt;
+    private javax.swing.JLabel V_loginBtn;
+    private javax.swing.JPasswordField V_passTxt;
+    private javax.swing.JTextField V_userTxt;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel codigo;
-    private javax.swing.JTextField codigoTxt;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPanel loginBtn;
-    private javax.swing.JLabel loginBtnTxt;
-    private javax.swing.JPasswordField passTxt;
-    private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables
 }

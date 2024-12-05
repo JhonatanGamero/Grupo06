@@ -10,131 +10,153 @@ import javax.swing.JOptionPane;
 
 public class CrearCuentaNueva extends javax.swing.JFrame {
     int xMouse, yMouse;
-    UsuariosList nuevousuario = new UsuariosList();
+    UsuariosList V_nuevousuario = new UsuariosList();
     
     public CrearCuentaNueva() {
         initComponents();
         agregarListeners();
+        validarCampos();
+        validacion();
     }
     
+    private boolean validacion(){
+        if (V_nombreTxt.getText().trim().isEmpty()) { JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío."); return false; } if (!V_userTxt.getText().matches("^[a-zA-Z0-9_]{5,}$")) { JOptionPane.showMessageDialog(this, "El usuario debe tener al menos 5 caracteres alfanuméricos."); return false; } String password = new String(V_passTxt.getPassword()); if (password.isEmpty() || password.length() < 8) { JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 8 caracteres."); return false; } return true;
+    }
+    
+    private boolean validarCampos(){
+        if (V_nombreTxt.getText().trim().isEmpty()) { 
+            JOptionPane.showMessageDialog(this, "El nombre es obligatorio."); return false; 
+        } 
+        if (!V_generoTxt.getText().matches("^(Masculino|Femenino|Otro)$")) { 
+            JOptionPane.showMessageDialog(this, "El género debe ser Masculino, Femenino u Otro."); return false; 
+        } if (!V_correoTxt.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) { 
+            JOptionPane.showMessageDialog(this, "Correo inválido."); return false; 
+        } if (!V_codigoTxt.getText().matches("^\\d{8}$")) { 
+            JOptionPane.showMessageDialog(this, "El código debe ser un número de 8 dígitos."); return false; 
+        } if (V_passTxt.getPassword().length < 8) { 
+            JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 8 caracteres."); return false; 
+        } return true;
+    }
+
     private void agregarListeners() {
-        // Listener para el campo de usuario
-    userTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+    
+       // Listener para el campo de usuario
+        V_userTxt.addFocusListener(new java.awt.event.FocusAdapter() {
         @Override
         public void focusGained(java.awt.event.FocusEvent evt) {
-            if (userTxt.getText().equals("Ingrese su nombre de usuario")) {
-                userTxt.setText("");
-                userTxt.setForeground(new java.awt.Color(0, 0, 0));
+            if (V_userTxt.getText().equals("Ingrese su nombre de usuario")) {
+                V_userTxt.setText("");
+                V_userTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
         }
 
         @Override
         public void focusLost(java.awt.event.FocusEvent evt) {
-            if (userTxt.getText().isEmpty()) {
-                userTxt.setText("Ingrese su nombre de usuario");
-                userTxt.setForeground(new java.awt.Color(153, 153, 153));
+            if (V_userTxt.getText().isEmpty()) {
+                V_userTxt.setText("Ingrese su nombre de usuario");
+                V_userTxt.setForeground(new java.awt.Color(153, 153, 153));
             }
         }
     });
 
-    // Listener para el campo de contraseña
-    passTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        // Listener para el campo de contraseña
+        V_passTxt.addFocusListener(new java.awt.event.FocusAdapter() {
         @Override
         public void focusGained(java.awt.event.FocusEvent evt) {
-            if (String.valueOf(passTxt.getPassword()).equals("**")) {
-                passTxt.setText("");
-                passTxt.setEchoChar('\u2022'); // Establece un carácter de enmascaramiento
-                passTxt.setForeground(new java.awt.Color(0, 0, 0));
+            if (String.valueOf(V_passTxt.getPassword()).equals("**")) {
+                V_passTxt.setText("");
+                V_passTxt.setEchoChar('\u2022'); // Establece un carácter de enmascaramiento
+                V_passTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
         }
 
         @Override
         public void focusLost(java.awt.event.FocusEvent evt) {
-            if (String.valueOf(passTxt.getPassword()).isEmpty()) {
-                passTxt.setText("**");
-                passTxt.setEchoChar((char) 0); // Remueve el carácter de enmascaramiento cuando está vacío
-                passTxt.setForeground(new java.awt.Color(204, 204, 204));
+            if (String.valueOf(V_passTxt.getPassword()).isEmpty()) {
+                V_passTxt.setText("**");
+                V_passTxt.setEchoChar((char) 0); // Remueve el carácter de enmascaramiento cuando está vacío
+                V_passTxt.setForeground(new java.awt.Color(204, 204, 204));
             }
         }
     });
 
-    // Listener para el campo de código
-    codigoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        // Listener para el campo de código
+        V_codigoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
         @Override
         public void focusGained(java.awt.event.FocusEvent evt) {
-            if (codigoTxt.getText().equals("Ingrese su código de usuario")) {
-                codigoTxt.setText("");
-                codigoTxt.setForeground(new java.awt.Color(0, 0, 0));
+            if (V_codigoTxt.getText().equals("Ingrese su código de usuario")) {
+                V_codigoTxt.setText("");
+                V_codigoTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
         }
         
         @Override
         public void focusLost(java.awt.event.FocusEvent evt) {
-            if (codigoTxt.getText().isEmpty()) {
-                codigoTxt.setText("Ingrese su código de usuario");
-                codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
+            if (V_codigoTxt.getText().isEmpty()) {
+                V_codigoTxt.setText("Ingrese su código de usuario");
+                V_codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
             }
         }
     });
     
-    // Listener para el campo de nombre
-    nombreTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        // Listener para el campo de nombre
+        V_nombreTxt.addFocusListener(new java.awt.event.FocusAdapter() {
         @Override
         public void focusGained(java.awt.event.FocusEvent evt) {
-            if (nombreTxt.getText().equals("Ingrese su nombre")) {
-                nombreTxt.setText("");
-                nombreTxt.setForeground(new java.awt.Color(0, 0, 0));
+            if (V_nombreTxt.getText().equals("Ingrese su nombre")) {
+                V_nombreTxt.setText("");
+                V_nombreTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
         }
         
         @Override
         public void focusLost(java.awt.event.FocusEvent evt) {
-            if (nombreTxt.getText().isEmpty()) {
-                nombreTxt.setText("Ingrese su nombre");
-                nombreTxt.setForeground(new java.awt.Color(153, 153, 153));
+            if (V_nombreTxt.getText().isEmpty()) {
+                V_nombreTxt.setText("Ingrese su nombre");
+                V_nombreTxt.setForeground(new java.awt.Color(153, 153, 153));
             }
         }
     });
     
-    // Listener para el campo de género
-    generoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        // Listener para el campo de género
+        V_generoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
         @Override
         public void focusGained(java.awt.event.FocusEvent evt) {
-            if (generoTxt.getText().equals("Ingrese su género")) {
-                generoTxt.setText("");
-                generoTxt.setForeground(new java.awt.Color(0, 0, 0));
+            if (V_generoTxt.getText().equals("Ingrese su género")) {
+                V_generoTxt.setText("");
+                V_generoTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
         }
         
         @Override
         public void focusLost(java.awt.event.FocusEvent evt) {
-            if (generoTxt.getText().isEmpty()) {
-                generoTxt.setText("Ingrese su género");
-                generoTxt.setForeground(new java.awt.Color(153, 153, 153));
+            if (V_generoTxt.getText().isEmpty()) {
+                V_generoTxt.setText("Ingrese su género");
+                V_generoTxt.setForeground(new java.awt.Color(153, 153, 153));
             }
         }
     });
     
-    // Listener para el campo de correo electrónico
-    correoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+        // Listener para el campo de correo electrónico
+        V_correoTxt.addFocusListener(new java.awt.event.FocusAdapter() {
         @Override
         public void focusGained(java.awt.event.FocusEvent evt) {
-            if (correoTxt.getText().equals("Ingrese su correo electrónico")) {
-                correoTxt.setText("");
-                correoTxt.setForeground(new java.awt.Color(0, 0, 0));
+            if (V_correoTxt.getText().equals("Ingrese su correo electrónico")) {
+                V_correoTxt.setText("");
+                V_correoTxt.setForeground(new java.awt.Color(0, 0, 0));
             }
         }
         
         @Override
         public void focusLost(java.awt.event.FocusEvent evt) {
-            if (correoTxt.getText().isEmpty()) {
-                correoTxt.setText("Ingrese su correo electrónico");
-                correoTxt.setForeground(new java.awt.Color(153, 153, 153));
+            if (V_correoTxt.getText().isEmpty()) {
+                V_correoTxt.setText("Ingrese su correo electrónico");
+                V_correoTxt.setForeground(new java.awt.Color(153, 153, 153));
             }
         }
     });
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -142,20 +164,20 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
         Titulo = new javax.swing.JLabel();
-        Contraseña = new javax.swing.JLabel();
+        V_Contraseña = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        Usuario = new javax.swing.JLabel();
-        userTxt = new javax.swing.JTextField();
+        V_Usuario = new javax.swing.JLabel();
+        V_userTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        passTxt = new javax.swing.JPasswordField();
+        V_passTxt = new javax.swing.JPasswordField();
         loginBtn = new javax.swing.JPanel();
-        loginBtnTxt = new javax.swing.JLabel();
+        V_loginBtn = new javax.swing.JLabel();
         ExitBtn = new javax.swing.JPanel();
         Exittxt = new javax.swing.JLabel();
-        Rol = new javax.swing.JLabel();
-        btnOrganizador = new javax.swing.JRadioButton();
-        btnParticipante = new javax.swing.JRadioButton();
-        codigoTxt = new javax.swing.JTextField();
+        V_Rol = new javax.swing.JLabel();
+        V_btnOrganizador = new javax.swing.JRadioButton();
+        V_btnParticipante = new javax.swing.JRadioButton();
+        V_codigoTxt = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         appname = new javax.swing.JLabel();
@@ -164,17 +186,17 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        Codigo = new javax.swing.JLabel();
-        correo = new javax.swing.JLabel();
-        Nombre = new javax.swing.JLabel();
-        genero = new javax.swing.JLabel();
-        correoTxt = new javax.swing.JTextField();
+        V_Codigo = new javax.swing.JLabel();
+        V_Correo = new javax.swing.JLabel();
+        V_Nombre = new javax.swing.JLabel();
+        V_Genero = new javax.swing.JLabel();
+        V_correoTxt = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        nombreTxt = new javax.swing.JTextField();
+        V_nombreTxt = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
-        generoTxt = new javax.swing.JTextField();
+        V_generoTxt = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
-        btnGuardarDatos = new javax.swing.JButton();
+        V_GuardarDatosBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -191,48 +213,48 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         Titulo.setText("CREA UNA CUENTA");
         jPanel3.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
-        Contraseña.setBackground(new java.awt.Color(0, 0, 0));
-        Contraseña.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        Contraseña.setForeground(new java.awt.Color(0, 0, 0));
-        Contraseña.setText("CONTRASEÑA ");
-        jPanel3.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, -1, -1));
+        V_Contraseña.setBackground(new java.awt.Color(0, 0, 0));
+        V_Contraseña.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Contraseña.setForeground(new java.awt.Color(0, 0, 0));
+        V_Contraseña.setText("CONTRASEÑA ");
+        jPanel3.add(V_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, -1, -1));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, 430, 10));
 
-        Usuario.setBackground(new java.awt.Color(0, 0, 0));
-        Usuario.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        Usuario.setForeground(new java.awt.Color(0, 0, 0));
-        Usuario.setText("USUARIO ");
-        jPanel3.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
+        V_Usuario.setBackground(new java.awt.Color(0, 0, 0));
+        V_Usuario.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Usuario.setForeground(new java.awt.Color(0, 0, 0));
+        V_Usuario.setText("USUARIO ");
+        jPanel3.add(V_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
-        userTxt.setBackground(new java.awt.Color(255, 255, 255));
-        userTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        userTxt.setForeground(new java.awt.Color(153, 153, 153));
-        userTxt.setText("Ingrese su nombre de usuario");
-        userTxt.setBorder(null);
-        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_userTxt.setBackground(new java.awt.Color(255, 255, 255));
+        V_userTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        V_userTxt.setForeground(new java.awt.Color(153, 153, 153));
+        V_userTxt.setText("Ingrese su nombre de usuario");
+        V_userTxt.setBorder(null);
+        V_userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxtMousePressed(evt);
+                V_userTxtMousePressed(evt);
             }
         });
-        jPanel3.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 360, 20));
+        jPanel3.add(V_userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 360, 20));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 430, 10));
 
-        passTxt.setBackground(new java.awt.Color(255, 255, 255));
-        passTxt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        passTxt.setForeground(new java.awt.Color(204, 204, 204));
-        passTxt.setText("********");
-        passTxt.setBorder(null);
-        passTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_passTxt.setBackground(new java.awt.Color(255, 255, 255));
+        V_passTxt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        V_passTxt.setForeground(new java.awt.Color(204, 204, 204));
+        V_passTxt.setText("********");
+        V_passTxt.setBorder(null);
+        V_passTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                passTxtMousePressed(evt);
+                V_passTxtMousePressed(evt);
             }
         });
-        passTxt.addActionListener(new java.awt.event.ActionListener() {
+        V_passTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passTxtActionPerformed(evt);
+                V_passTxtActionPerformed(evt);
             }
         });
-        jPanel3.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 360, 20));
+        jPanel3.add(V_passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 360, 20));
 
         loginBtn.setBackground(new java.awt.Color(58, 126, 145));
         loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -247,30 +269,30 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
             }
         });
 
-        loginBtnTxt.setBackground(new java.awt.Color(240, 240, 240));
-        loginBtnTxt.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        loginBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
-        loginBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginBtnTxt.setText("Registrarte");
-        loginBtnTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginBtnTxt.addAncestorListener(new javax.swing.event.AncestorListener() {
+        V_loginBtn.setBackground(new java.awt.Color(240, 240, 240));
+        V_loginBtn.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        V_loginBtn.setForeground(new java.awt.Color(255, 255, 255));
+        V_loginBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        V_loginBtn.setText("Registrarte");
+        V_loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        V_loginBtn.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                loginBtnTxtAncestorAdded(evt);
+                V_loginBtnAncestorAdded(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        loginBtnTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginBtnTxtMouseClicked(evt);
+                V_loginBtnMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                loginBtnTxtMouseEntered(evt);
+                V_loginBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                loginBtnTxtMouseExited(evt);
+                V_loginBtnMouseExited(evt);
             }
         });
 
@@ -279,14 +301,14 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         loginBtnLayout.setHorizontalGroup(
             loginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginBtnLayout.createSequentialGroup()
-                .addComponent(loginBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(V_loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         loginBtnLayout.setVerticalGroup(
             loginBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginBtnLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(loginBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(V_loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 650, 140, 50));
@@ -329,35 +351,35 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
 
         jPanel3.add(ExitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(913, 0, 60, 40));
 
-        Rol.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        Rol.setForeground(new java.awt.Color(0, 0, 0));
-        Rol.setText("ROL");
-        jPanel3.add(Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, -1, -1));
+        V_Rol.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Rol.setForeground(new java.awt.Color(0, 0, 0));
+        V_Rol.setText("ROL");
+        jPanel3.add(V_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, -1, -1));
 
-        buttonGroup1.add(btnOrganizador);
-        btnOrganizador.setText("Organizador");
-        btnOrganizador.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(V_btnOrganizador);
+        V_btnOrganizador.setText("Organizador");
+        V_btnOrganizador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrganizadorActionPerformed(evt);
+                V_btnOrganizadorActionPerformed(evt);
             }
         });
-        jPanel3.add(btnOrganizador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, -1, -1));
+        jPanel3.add(V_btnOrganizador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, -1, -1));
 
-        buttonGroup1.add(btnParticipante);
-        btnParticipante.setText("Participante");
-        jPanel3.add(btnParticipante, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 580, -1, -1));
+        buttonGroup1.add(V_btnParticipante);
+        V_btnParticipante.setText("Participante");
+        jPanel3.add(V_btnParticipante, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 580, -1, -1));
 
-        codigoTxt.setBackground(new java.awt.Color(255, 255, 255));
-        codigoTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
-        codigoTxt.setText("Ingrese su código de usuario");
-        codigoTxt.setBorder(null);
-        codigoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_codigoTxt.setBackground(new java.awt.Color(255, 255, 255));
+        V_codigoTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        V_codigoTxt.setForeground(new java.awt.Color(153, 153, 153));
+        V_codigoTxt.setText("Ingrese su código de usuario");
+        V_codigoTxt.setBorder(null);
+        V_codigoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                codigoTxtMousePressed(evt);
+                V_codigoTxtMousePressed(evt);
             }
         });
-        jPanel3.add(codigoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 360, 20));
+        jPanel3.add(V_codigoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 360, 20));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 430, 10));
 
         jLabel1.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
@@ -407,72 +429,75 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/triangulorecto2.png"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, -1, -1));
 
-        Codigo.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        Codigo.setForeground(new java.awt.Color(0, 0, 0));
-        Codigo.setText("CÓDIGO");
-        jPanel3.add(Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
+        V_Codigo.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Codigo.setForeground(new java.awt.Color(0, 0, 0));
+        V_Codigo.setText("CÓDIGO");
+        jPanel3.add(V_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
 
-        correo.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        correo.setForeground(new java.awt.Color(0, 0, 0));
-        correo.setText("CORREO ELECTRÓNICO");
-        jPanel3.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
+        V_Correo.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Correo.setForeground(new java.awt.Color(0, 0, 0));
+        V_Correo.setText("CORREO ELECTRÓNICO");
+        jPanel3.add(V_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
 
-        Nombre.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        Nombre.setForeground(new java.awt.Color(0, 0, 0));
-        Nombre.setText("NOMBRE");
-        jPanel3.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
+        V_Nombre.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Nombre.setForeground(new java.awt.Color(0, 0, 0));
+        V_Nombre.setText("NOMBRE");
+        jPanel3.add(V_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
-        genero.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
-        genero.setForeground(new java.awt.Color(0, 0, 0));
-        genero.setText("GÉNERO");
-        jPanel3.add(genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, -1, -1));
+        V_Genero.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        V_Genero.setForeground(new java.awt.Color(0, 0, 0));
+        V_Genero.setText("GÉNERO");
+        jPanel3.add(V_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, -1, -1));
 
-        correoTxt.setBackground(new java.awt.Color(255, 255, 255));
-        correoTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        correoTxt.setForeground(new java.awt.Color(153, 153, 153));
-        correoTxt.setText("Ingrese su correo electrónico");
-        correoTxt.setBorder(null);
-        correoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_correoTxt.setBackground(new java.awt.Color(255, 255, 255));
+        V_correoTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        V_correoTxt.setForeground(new java.awt.Color(153, 153, 153));
+        V_correoTxt.setText("Ingrese su correo electrónico");
+        V_correoTxt.setBorder(null);
+        V_correoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                correoTxtMousePressed(evt);
+                V_correoTxtMousePressed(evt);
             }
         });
-        jPanel3.add(correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 360, 20));
+        jPanel3.add(V_correoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 360, 20));
         jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 430, 10));
 
-        nombreTxt.setBackground(new java.awt.Color(255, 255, 255));
-        nombreTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        nombreTxt.setForeground(new java.awt.Color(153, 153, 153));
-        nombreTxt.setText("Ingrese su nombre");
-        nombreTxt.setBorder(null);
-        nombreTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_nombreTxt.setBackground(new java.awt.Color(255, 255, 255));
+        V_nombreTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        V_nombreTxt.setForeground(new java.awt.Color(153, 153, 153));
+        V_nombreTxt.setText("Ingrese su nombre");
+        V_nombreTxt.setBorder(null);
+        V_nombreTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                V_nombreTxtMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                nombreTxtMousePressed(evt);
+                V_nombreTxtMousePressed(evt);
             }
         });
-        jPanel3.add(nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 360, 20));
+        jPanel3.add(V_nombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 360, 20));
         jPanel3.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 430, 10));
 
-        generoTxt.setBackground(new java.awt.Color(255, 255, 255));
-        generoTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        generoTxt.setForeground(new java.awt.Color(153, 153, 153));
-        generoTxt.setText("Ingrese su género");
-        generoTxt.setBorder(null);
-        generoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        V_generoTxt.setBackground(new java.awt.Color(255, 255, 255));
+        V_generoTxt.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        V_generoTxt.setForeground(new java.awt.Color(153, 153, 153));
+        V_generoTxt.setText("Ingrese su género");
+        V_generoTxt.setBorder(null);
+        V_generoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                generoTxtMousePressed(evt);
+                V_generoTxtMousePressed(evt);
             }
         });
-        jPanel3.add(generoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 360, 20));
+        jPanel3.add(V_generoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 360, 20));
         jPanel3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 430, 10));
 
-        btnGuardarDatos.setText("GUARDAR DATOS");
-        btnGuardarDatos.addActionListener(new java.awt.event.ActionListener() {
+        V_GuardarDatosBtn.setText("GUARDAR DATOS");
+        V_GuardarDatosBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarDatosActionPerformed(evt);
+                V_GuardarDatosBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(btnGuardarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 650, 180, 50));
+        jPanel3.add(V_GuardarDatosBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 650, 180, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -488,9 +513,9 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxtActionPerformed
+    private void V_passTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_V_passTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passTxtActionPerformed
+    }//GEN-LAST:event_V_passTxtActionPerformed
 
     private void ExittxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExittxtMouseClicked
         System.exit(0);
@@ -510,13 +535,13 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         Exittxt.setForeground(Color.black);
     }//GEN-LAST:event_ExittxtMouseExited
 
-    private void loginBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseEntered
+    private void V_loginBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_loginBtnMouseEntered
             loginBtn.setBackground(new Color(126, 187, 204));
-    }//GEN-LAST:event_loginBtnTxtMouseEntered
+    }//GEN-LAST:event_V_loginBtnMouseEntered
 
-    private void loginBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseExited
+    private void V_loginBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_loginBtnMouseExited
             loginBtn.setBackground(new Color(58,126,145));
-    }//GEN-LAST:event_loginBtnTxtMouseExited
+    }//GEN-LAST:event_V_loginBtnMouseExited
 
     private void loginBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseEntered
     //
@@ -526,143 +551,117 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
     //
     }//GEN-LAST:event_loginBtnMouseExited
 
-    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
-        try{
-        if(nombreTxt.getText().isEmpty()){
-           nombreTxt.setText("Ingrese su nombre");
-           nombreTxt.setForeground(Color.gray);
+    private void V_userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_userTxtMousePressed
+  
+        if(V_nombreTxt.getText().isEmpty()){
+           V_nombreTxt.setText("Ingrese su nombre");
+           V_nombreTxt.setForeground(Color.gray);
+           
         }
-        if(generoTxt.getText().isEmpty()){
-           generoTxt.setText("Ingrese su género");
-           generoTxt.setForeground(Color.gray);
+        if(V_generoTxt.getText().isEmpty()){
+           V_generoTxt.setText("Ingrese su género");
+           V_generoTxt.setForeground(Color.gray);
+           
         }
-        if(correoTxt.getText().isEmpty()){
-           correoTxt.setText("Ingrese su correo electrónico");
-           correoTxt.setForeground(Color.gray);
+        if(V_correoTxt.getText().isEmpty()){
+           V_correoTxt.setText("Ingrese su correo electrónico");
+           V_correoTxt.setForeground(Color.gray);
+         
         }
-        if (codigoTxt.getText() .isEmpty()){  
-            codigoTxt.setText("Ingrese su código de usuario");
-            codigoTxt.setForeground(Color.gray);
+        if (V_codigoTxt.getText() .isEmpty()){  
+            V_codigoTxt.setText("Ingrese su código de usuario");
+            V_codigoTxt.setForeground(Color.gray);
+            
         }
-        if (userTxt.getText() .equals("Ingrese su nombre de usuario")){  
-            userTxt.setText("");
-            userTxt.setForeground(Color.black);
+        if (V_userTxt.getText() .equals("Ingrese su nombre de usuario")){  
+            V_userTxt.setText("");
+            V_userTxt.setForeground(Color.black);
+            
         }
-        if (String.valueOf(passTxt.getPassword()) .isEmpty()){  
-            passTxt.setText("********");
-            passTxt.setForeground(Color.gray);
+        if (String.valueOf(V_passTxt.getPassword()) .isEmpty()){  
+            V_passTxt.setText("********");
+            V_passTxt.setForeground(Color.gray);
+          
         }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }//GEN-LAST:event_userTxtMousePressed
+            
+    }//GEN-LAST:event_V_userTxtMousePressed
 
-    private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
-       try{
-        if(nombreTxt.getText().isEmpty()){
-           nombreTxt.setText("Ingrese su nombre");
-           nombreTxt.setForeground(Color.gray);
+    private void V_passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_passTxtMousePressed
+
+        if(V_nombreTxt.getText().isEmpty()){
+           V_nombreTxt.setText("Ingrese su nombre");
+           V_nombreTxt.setForeground(Color.gray);
         }
-        if(generoTxt.getText().isEmpty()){
-           generoTxt.setText("Ingrese su género");
-           generoTxt.setForeground(Color.gray);
+        if(V_generoTxt.getText().isEmpty()){
+           V_generoTxt.setText("Ingrese su género");
+           V_generoTxt.setForeground(Color.gray);
         }
-        if(correoTxt.getText().isEmpty()){
-           correoTxt.setText("Ingrese su correo electrónico");
-           correoTxt.setForeground(Color.gray);
+        if(V_correoTxt.getText().isEmpty()){
+           V_correoTxt.setText("Ingrese su correo electrónico");
+           V_correoTxt.setForeground(Color.gray);
         }
-        if (codigoTxt.getText() .isEmpty()){  
-            codigoTxt.setText("Ingrese su código de usuario");
-            codigoTxt.setForeground(Color.gray);
+        if (V_codigoTxt.getText() .isEmpty()){  
+            V_codigoTxt.setText("Ingrese su código de usuario");
+            V_codigoTxt.setForeground(Color.gray);
         }
-        if (userTxt.getText() .isEmpty()){  
-            userTxt.setText("Ingrese su nombre de usuario");
-            userTxt.setForeground(Color.gray);
+        if (V_userTxt.getText() .isEmpty()){  
+            V_userTxt.setText("Ingrese su nombre de usuario");
+            V_userTxt.setForeground(Color.gray);
         } 
-        if (String.valueOf(passTxt.getPassword()) .equals("********")){
-            passTxt.setText("");
-            passTxt.setForeground(Color.black);
+        if (String.valueOf(V_passTxt.getPassword()) .equals("********")){
+            V_passTxt.setText("");
+            V_passTxt.setForeground(Color.black);
         } 
-        }catch(Exception e){
-                JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }//GEN-LAST:event_passTxtMousePressed
+    
+    }//GEN-LAST:event_V_passTxtMousePressed
 
-    private void loginBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseClicked
-            // Validación del código
-            if (codigoTxt.getText().length() == 0) {
-                JOptionPane.showMessageDialog(this, "Ingresar su código");
-                return;
-            }
+    private void V_loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_loginBtnMouseClicked
 
-            String codigo = codigoTxt.getText();
-            Pattern validarCodigo = Pattern.compile("^[0-9]{8}$");
-            Matcher validandoCodigo = validarCodigo.matcher(codigo);
-            if (!validandoCodigo.matches()) {
-                JOptionPane.showMessageDialog(this, "El código solo puede tener números y un máximo de 8 dígitos");
-                return;
-            }
-
-            // Validación del usuario
-            if (userTxt.getText().length() == 0) {
-                JOptionPane.showMessageDialog(this, "Ingresar su usuario");
-                return;
-            }
-
-            String nombre = userTxt.getText();
-            Pattern validarNombre = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$");
-            Matcher nombreValida = validarNombre.matcher(nombre);
-            if (!nombreValida.matches()) {
-                JOptionPane.showMessageDialog(this, "El nombre solo puede contener letras");
-                return;
-            }
-
-            // Validación de la contraseña
-            if (passTxt.getPassword().length==0) {
-                JOptionPane.showMessageDialog(this, "Ingresar su contraseña");
-                return;
-            } 
+            
+            /*
             
             // Si todas las validaciones son correctas, se abre la página y se cierra la ventana actual
             Pagina pagina = new Pagina();
             pagina.setVisible(true);
             this.dispose();
-    }//GEN-LAST:event_loginBtnTxtMouseClicked
+        */
+    }//GEN-LAST:event_V_loginBtnMouseClicked
 
-    private void btnOrganizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrganizadorActionPerformed
+    private void V_btnOrganizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_V_btnOrganizadorActionPerformed
         // 
-    }//GEN-LAST:event_btnOrganizadorActionPerformed
+    }//GEN-LAST:event_V_btnOrganizadorActionPerformed
 
-    private void codigoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_codigoTxtMousePressed
-        if(nombreTxt.getText().isEmpty()){
-           nombreTxt.setText("Ingrese su nombre");
-           nombreTxt.setForeground(Color.gray);
+    private void V_codigoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_codigoTxtMousePressed
+        if(V_nombreTxt.getText().isEmpty()){
+           V_nombreTxt.setText("Ingrese su nombre");
+           V_nombreTxt.setForeground(Color.gray);
         }
-        if(generoTxt.getText().isEmpty()){
-           generoTxt.setText("Ingrese su género");
-           generoTxt.setForeground(Color.gray);
+        if(V_generoTxt.getText().isEmpty()){
+           V_generoTxt.setText("Ingrese su género");
+           V_generoTxt.setForeground(Color.gray);
         }
-        if(correoTxt.getText().isEmpty()){
-           correoTxt.setText("Ingrese su correo electrónico");
-           correoTxt.setForeground(Color.gray);
+        if(V_correoTxt.getText().isEmpty()){
+           V_correoTxt.setText("Ingrese su correo electrónico");
+           V_correoTxt.setForeground(Color.gray);
         }
-        if (codigoTxt.getText() .equals("Ingrese su código de usuario")){  
-            codigoTxt.setText("");
-            codigoTxt.setForeground(Color.black);
+        if (V_codigoTxt.getText() .equals("Ingrese su código de usuario")){  
+            V_codigoTxt.setText("");
+            V_codigoTxt.setForeground(Color.black);
         }
-        if (userTxt.getText() .isEmpty()){  
-            userTxt.setText("Ingrese su nombre de usuario");
-            userTxt.setForeground(Color.gray);
+        if (V_userTxt.getText() .isEmpty()){  
+            V_userTxt.setText("Ingrese su nombre de usuario");
+            V_userTxt.setForeground(Color.gray);
         }
-        if (String.valueOf(passTxt.getPassword()) .isEmpty()){  
-            passTxt.setText("********");
-            passTxt.setForeground(Color.gray);
+        if (String.valueOf(V_passTxt.getPassword()) .isEmpty()){  
+            V_passTxt.setText("********");
+            V_passTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_codigoTxtMousePressed
 
-    private void loginBtnTxtAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_loginBtnTxtAncestorAdded
+    }//GEN-LAST:event_V_codigoTxtMousePressed
+
+    private void V_loginBtnAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_V_loginBtnAncestorAdded
      //
-    }//GEN-LAST:event_loginBtnTxtAncestorAdded
+    }//GEN-LAST:event_V_loginBtnAncestorAdded
 
     private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
         // TODO add your handling code here:
@@ -679,110 +678,129 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_jPanel4MousePressed
 
-    private void correoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_correoTxtMousePressed
-        if(nombreTxt.getText().isEmpty()){
-           nombreTxt.setText("Ingrese su nombre");
-           nombreTxt.setForeground(Color.gray);
+    private void V_correoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_correoTxtMousePressed
+        if(V_nombreTxt.getText().isEmpty()){
+           V_nombreTxt.setText("Ingrese su nombre");
+           V_nombreTxt.setForeground(Color.gray);
         }
-        if(generoTxt.getText().isEmpty()){
-           generoTxt.setText("Ingrese su género");
-           generoTxt.setForeground(Color.gray);
+        if(V_generoTxt.getText().isEmpty()){
+           V_generoTxt.setText("Ingrese su género");
+           V_generoTxt.setForeground(Color.gray);
         }
-        if(correoTxt.getText().isEmpty()){
-           correoTxt.setText("Ingrese su correo electrónico");
-           correoTxt.setForeground(Color.black);
+        if(V_correoTxt.getText().isEmpty()){
+           V_correoTxt.setText("Ingrese su correo electrónico");
+           V_correoTxt.setForeground(Color.black);
         }
-        if (codigoTxt.getText() .isEmpty()){  
-            codigoTxt.setText("Ingrese su código de usuario");
-            codigoTxt.setForeground(Color.gray);
+        if (V_codigoTxt.getText() .isEmpty()){  
+            V_codigoTxt.setText("Ingrese su código de usuario");
+            V_codigoTxt.setForeground(Color.gray);
         }
-        if (userTxt.getText() .equals("Ingrese su nombre de usuario")){  
-            userTxt.setText("");
-            userTxt.setForeground(Color.gray);
+        if (V_userTxt.getText() .equals("Ingrese su nombre de usuario")){  
+            V_userTxt.setText("");
+            V_userTxt.setForeground(Color.gray);
         }
-        if (String.valueOf(passTxt.getPassword()) .isEmpty()){  
-            passTxt.setText("********");
-            passTxt.setForeground(Color.gray);
+        if (String.valueOf(V_passTxt.getPassword()) .isEmpty()){  
+            V_passTxt.setText("********");
+            V_passTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_correoTxtMousePressed
+        
+    }//GEN-LAST:event_V_correoTxtMousePressed
 
-    private void nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreTxtMousePressed
-        if(nombreTxt.getText().isEmpty()){
-           nombreTxt.setText("Ingrese su nombre");
-           nombreTxt.setForeground(Color.black);
+    private void V_nombreTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_nombreTxtMousePressed
+        if(V_nombreTxt.getText().isEmpty()){
+           V_nombreTxt.setText("Ingrese su nombre");
+           V_nombreTxt.setForeground(Color.black);
         }
-        if(generoTxt.getText().isEmpty()){
-           generoTxt.setText("Ingrese su género");
-           generoTxt.setForeground(Color.gray);
+        if(V_generoTxt.getText().isEmpty()){
+           V_generoTxt.setText("Ingrese su género");
+           V_generoTxt.setForeground(Color.gray);
         }
-        if(correoTxt.getText().isEmpty()){
-           correoTxt.setText("Ingrese su correo electrónico");
-           correoTxt.setForeground(Color.gray);
+        if(V_correoTxt.getText().isEmpty()){
+           V_correoTxt.setText("Ingrese su correo electrónico");
+           V_correoTxt.setForeground(Color.gray);
         }
-        if (codigoTxt.getText() .isEmpty()){  
-            codigoTxt.setText("Ingrese su código de usuario");
-            codigoTxt.setForeground(Color.gray);
+        if (V_codigoTxt.getText() .isEmpty()){  
+            V_codigoTxt.setText("Ingrese su código de usuario");
+            V_codigoTxt.setForeground(Color.gray);
         }
-        if (userTxt.getText() .equals("Ingrese su nombre de usuario")){  
-            userTxt.setText("");
-            userTxt.setForeground(Color.gray);
+        if (V_userTxt.getText() .equals("Ingrese su nombre de usuario")){  
+            V_userTxt.setText("");
+            V_userTxt.setForeground(Color.gray);
         }
-        if (String.valueOf(passTxt.getPassword()) .isEmpty()){  
-            passTxt.setText("********");
-            passTxt.setForeground(Color.gray);
+        if (String.valueOf(V_passTxt.getPassword()) .isEmpty()){  
+            V_passTxt.setText("********");
+            V_passTxt.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_nombreTxtMousePressed
 
-    private void generoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generoTxtMousePressed
-        if(nombreTxt.getText().isEmpty()){
-           nombreTxt.setText("Ingrese su nombre");
-           nombreTxt.setForeground(Color.gray);
-        }
-        if(generoTxt.getText().isEmpty()){
-           generoTxt.setText("Ingrese su género");
-           generoTxt.setForeground(Color.black);
-        }
-        if(correoTxt.getText().isEmpty()){
-           correoTxt.setText("Ingrese su correo electrónico");
-           correoTxt.setForeground(Color.gray);
-        }
-        if (codigoTxt.getText() .isEmpty()){  
-            codigoTxt.setText("Ingrese su código de usuario");
-            codigoTxt.setForeground(Color.gray);
-        }
-        if (userTxt.getText() .equals("Ingrese su nombre de usuario")){  
-            userTxt.setText("");
-            userTxt.setForeground(Color.gray);
-        }
-        if (String.valueOf(passTxt.getPassword()) .isEmpty()){  
-            passTxt.setText("********");
-            passTxt.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_generoTxtMousePressed
+    }//GEN-LAST:event_V_nombreTxtMousePressed
 
-    private void btnGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDatosActionPerformed
-    try{
-        Usuarios nusuario = new Usuarios();
-            nusuario.setNombre(nombreTxt.getText());
-            nusuario.setGenero(generoTxt.getText());
-            nusuario.setEmail(correoTxt.getText());
-            nusuario.setCodigoUsuario(Integer.parseInt(codigoTxt.getText()));
-            nusuario.setNombreUsuario(userTxt.getText());
-            if(btnOrganizador.isSelected()) nusuario.setRol("Organizador");
-            if(btnParticipante.isSelected()) nusuario.setRol("Participante");
-            nusuario.setContrasena(passTxt.getName());
-            
-            nuevousuario.agregar(nusuario);
-            JOptionPane.showMessageDialog(null, "Registro exitoso");
-            
-            RegistroUsuarios_Nexus r = new RegistroUsuarios_Nexus(nuevousuario);
-            r.setVisible(true);
+    private void V_generoTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_generoTxtMousePressed
+        if(V_nombreTxt.getText().isEmpty()){
+           V_nombreTxt.setText("Ingrese su nombre");
+           V_nombreTxt.setForeground(Color.gray);
+        }
+        if(V_generoTxt.getText().isEmpty()){
+           V_generoTxt.setText("Ingrese su género");
+           V_generoTxt.setForeground(Color.black);
+        }
+        if(V_correoTxt.getText().isEmpty()){
+           V_correoTxt.setText("Ingrese su correo electrónico");
+           V_correoTxt.setForeground(Color.gray);
+        }
+        if (V_codigoTxt.getText() .isEmpty()){  
+            V_codigoTxt.setText("Ingrese su código de usuario");
+            V_codigoTxt.setForeground(Color.gray);
+        }
+        if (V_userTxt.getText() .equals("Ingrese su nombre de usuario")){  
+            V_userTxt.setText("");
+            V_userTxt.setForeground(Color.gray);
+        }
+        if (String.valueOf(V_passTxt.getPassword()) .isEmpty()){  
+            V_passTxt.setText("********");
+            V_passTxt.setForeground(Color.gray);
+        }
+
+    }//GEN-LAST:event_V_generoTxtMousePressed
+
+    private void V_GuardarDatosBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_V_GuardarDatosBtnActionPerformed
+            if(!validacion()) return;
+        
+        if (!validarCampos()) { 
+                return; // Detener si la validación falla 
+            } try { 
+                Usuarios nusuario = new Usuarios();
+                nusuario.setNombre(V_nombreTxt.getText().trim());
+                nusuario.setGenero(V_generoTxt.getText().trim()); 
+                nusuario.setEmail(V_correoTxt.getText().trim()); 
+                nusuario.setCodigoUsuario(Integer.parseInt(V_codigoTxt.getText().trim())); 
+                nusuario.setNombreUsuario(V_userTxt.getText().trim()); 
+                nusuario.setContrasena(new String(V_passTxt.getPassword())); 
+                if (V_btnOrganizador.isSelected()) { 
+                    nusuario.setRol("Organizador"); 
+                } else if (V_btnParticipante.isSelected()) { 
+                    nusuario.setRol("Participante"); 
+                } else { 
+                    JOptionPane.showMessageDialog(this, "Debe seleccionar un rol."); 
+                   return;
+                } 
+                V_nuevousuario.agregar(nusuario); 
+                JOptionPane.showMessageDialog(null, "Registro exitoso"); 
+                this.dispose(); 
+                
+            // Si todas las validaciones son correctas, se abre la página y se cierra la ventana actual
+            Pagina pagina = new Pagina();
+            pagina.setVisible(true);
             this.dispose();
-    }
-    catch(Exception e){
-        JOptionPane.showMessageDialog(this, e.getMessage());
-    }
-    }//GEN-LAST:event_btnGuardarDatosActionPerformed
+            } catch (Exception e)  {
+                    JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage()); 
+            }
+            
+            
+    }//GEN-LAST:event_V_GuardarDatosBtnActionPerformed
+
+    private void V_nombreTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_V_nombreTxtMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_V_nombreTxtMouseClicked
 
    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -816,26 +834,30 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Codigo;
-    private javax.swing.JLabel Contraseña;
     private javax.swing.JLabel Decoracion;
     private javax.swing.JLabel Decoracion2;
     private javax.swing.JPanel ExitBtn;
     private javax.swing.JLabel Exittxt;
-    private javax.swing.JLabel Nombre;
-    private javax.swing.JLabel Rol;
     private javax.swing.JLabel Titulo;
-    private javax.swing.JLabel Usuario;
+    private javax.swing.JLabel V_Codigo;
+    private javax.swing.JLabel V_Contraseña;
+    private javax.swing.JLabel V_Correo;
+    private javax.swing.JLabel V_Genero;
+    private javax.swing.JButton V_GuardarDatosBtn;
+    private javax.swing.JLabel V_Nombre;
+    private javax.swing.JLabel V_Rol;
+    private javax.swing.JLabel V_Usuario;
+    private javax.swing.JRadioButton V_btnOrganizador;
+    private javax.swing.JRadioButton V_btnParticipante;
+    private javax.swing.JTextField V_codigoTxt;
+    private javax.swing.JTextField V_correoTxt;
+    private javax.swing.JTextField V_generoTxt;
+    private javax.swing.JLabel V_loginBtn;
+    private javax.swing.JTextField V_nombreTxt;
+    private javax.swing.JPasswordField V_passTxt;
+    private javax.swing.JTextField V_userTxt;
     private javax.swing.JLabel appname;
-    private javax.swing.JButton btnGuardarDatos;
-    private javax.swing.JRadioButton btnOrganizador;
-    private javax.swing.JRadioButton btnParticipante;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField codigoTxt;
-    private javax.swing.JLabel correo;
-    private javax.swing.JTextField correoTxt;
-    private javax.swing.JLabel genero;
-    private javax.swing.JTextField generoTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -848,9 +870,5 @@ public class CrearCuentaNueva extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JPanel loginBtn;
-    private javax.swing.JLabel loginBtnTxt;
-    private javax.swing.JTextField nombreTxt;
-    private javax.swing.JPasswordField passTxt;
-    private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables
 }
