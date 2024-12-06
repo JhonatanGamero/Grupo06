@@ -2,26 +2,25 @@
 package BD;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class BdConnection {
-    
-    static String url="jdbc:mysql://127.0.0.1:3306/Nexus";
-    static String user="root";
-    static String pass="23092005";
-    
-    public static Connection conectar()
-    {
-       Connection con=null;
-       try
-       {
-       con=DriverManager.getConnection(url,user,pass);
-           System.out.println("Conexión exitosa");
-       }catch(SQLException e)
-       {
-        e.printStackTrace();
-       }
+    Connection conectar = null;
+    String usuario= "root";
+    String contrasena= "23092005";
+    String bd = "Nexus";
+    String ip = "localhost";
+    String puerto = "3306";
+
+    String cadena = "jdbc:mysql://"+ip+":"+puerto+"/"+bd;
+
+    public Connection estableceConexion(){
+        try{
+             JOptionPane.showMessageDialog (null, "Se conectó correctamente a la base de datos.");
        
-       return con;
-               
+        }catch (Exception e){
+        JOptionPane.showMessageDialog (null, "No se conectó a la base de datos, error: "+e.toString());
+        }
+        return conectar;
     }
 }
